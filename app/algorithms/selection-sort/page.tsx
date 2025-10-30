@@ -1,25 +1,34 @@
 import React from "react";
 
 export default function Page() {
-
-    const findSmallest = (arr) => {
-        let smallest = arr[0];
-        let smallest_index = 0;
+    const selectionSort = (arr) => {
+        let newArr = [];
+        const copiedArr = [...arr];
         for (let i = 0; i < arr.length; i++) {
-            if (arr[i] < smallest) {
-                smallest = arr[i];
-                smallest_index = i;
-
-            }
+            let smallestValue = Math.min(...copiedArr);
+            let smallestIndex = copiedArr.indexOf(smallestValue);
+            let removedElement = copiedArr.splice(smallestIndex, 1)[0];
+            newArr.push(removedElement);
         }
-        return smallest_index;
-
+        return newArr;
     }
-    console.log(findSmallest([2, 4, 1, 6]));
 
     return (
         <div>
-            <h2 className='text-xl text-center mb-4'>Сортировка выбором</h2>
+            <h2 className='text-xl text-center mb-4'>Сортировка выбором (Selection Sort)</h2>
+            <code>
+                array = [8, 3, 2, 7, 11];
+                <br/>
+                selectionSort(array) -
+                <span className='text-blue-300'> [{selectionSort([8, 3, 2, 7, 11]).join(', ')}]</span>
+            </code>
+            <br/>
+            <code>
+                array = [100, 9, 14, 6, 0];
+                <br/>
+                selectionSort(array) -
+                <span className='text-blue-300'> [{selectionSort([100, 9, 14, 6, 0]).join(', ')}]</span>
+            </code>
         </div>
     );
 }
