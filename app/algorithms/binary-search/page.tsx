@@ -22,8 +22,8 @@ export default function Page() {
     const myList = [11, 33, 55, 77, 99];
 
     return (
-        <div className='p-20'>
-            <h2>Сортировка выбором</h2>
+        <>
+            <h2 className='text-xl text-center mb-4'>Бинарный поиск</h2>
             <p>list = {myList.join(', ')}</p>
             <p>
                 binarySearch(myList, 11)
@@ -37,6 +37,6 @@ export default function Page() {
                 binarySearch(myList, 99)
                 <span className='text-blue-300'> // {binarySearch(myList, 99)}</span>
             </p>
-        </div>
+        </>
     );
 }

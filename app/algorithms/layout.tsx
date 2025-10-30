@@ -1,7 +1,9 @@
 export default function Layout({
-  children,
-}: {
-  children: React.ReactNode
+                                   children,
+                               }: {
+    children: React.ReactNode
 }) {
-  return <section>{children}</section>
+    return <section className='p-10'>
+        {children}
+    </section>
 }
