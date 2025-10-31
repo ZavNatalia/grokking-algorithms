@@ -16,7 +16,7 @@ export default function Header() {
     return <div className='w-full flex justify-center px-2 py-4 '>
         <ul className='flex gap-3'>
             {navLinks.map(({title, href}) => (
-                <li key={title} className='hover:text-yellow'>
+                <li key={title} className='hover:text-blue-300'>
                     <Link href={href}>{title}</Link>
                 </li>
             ))}

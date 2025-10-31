@@ -1,4 +1,5 @@
 import React from "react";
+import { BackButton } from '@/components/BackButton';
 
 export default function Page() {
 
@@ -23,6 +24,7 @@ export default function Page() {
 
     return (
         <>
+            <BackButton/>
             <h2 className='text-xl text-center mb-4'>Бинарный поиск (Binary Search)</h2>
             <code>
                 list = {myList.join(', ')}
