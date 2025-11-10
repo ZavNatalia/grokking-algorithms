@@ -50,7 +50,7 @@ const graphData: Record<string, string[]> = {
 
 const algo = {
     slug: 'breadth-first-search',
-    title: 'Поиск в ширину (Breadth-First Search)',
+    title: 'Графы: поиск в ширину (Breadth-First Search)',
     description: (
         <>
             Обходит граф слоями с помощью очереди: сначала все соседние вершины, затем их соседей и т.д.

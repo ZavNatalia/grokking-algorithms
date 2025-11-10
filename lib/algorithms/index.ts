@@ -4,10 +4,22 @@ import selectionSort from './sorting/selection-sort';
 import factorial from './recursion/factorial';
 import quicksort from '@/lib/algorithms/sorting/quicksort';
 import deduplicate from '@/lib/algorithms/hash/deduplicate';
-import bfs from '@/lib/algorithms/graph/bfs';
-import treesBfs from '@/lib/algorithms/trees/trees-bfs';
+import graphBfs from '@/lib/algorithms/graphs/bfs';
+import treesBfs from '@/lib/algorithms/trees/bfs';
+import treesDfs from '@/lib/algorithms/trees/dfs';
+import dijkstra from '@/lib/algorithms/graphs/dijkstra';
 
-export const algorithms = [binarySearch, selectionSort, factorial, quicksort, deduplicate, bfs, treesBfs] as const;
+export const algorithms = [
+    binarySearch,
+    selectionSort,
+    factorial,
+    quicksort,
+    deduplicate,
+    graphBfs,
+    treesBfs,
+    treesDfs,
+    dijkstra,
+] as const;
 export type AlgorithmSlug = typeof algorithms[number]['slug'];
 
 const entries = algorithms.map(algo => [algo.slug, algo] as const);
