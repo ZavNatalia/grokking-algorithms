@@ -8,6 +8,7 @@ import graphBfs from '@/lib/algorithms/graphs/bfs';
 import treesBfs from '@/lib/algorithms/trees/bfs';
 import treesDfs from '@/lib/algorithms/trees/dfs';
 import dijkstra from '@/lib/algorithms/graphs/dijkstra';
+import setCover from '@/lib/algorithms/greedy/set-cover';
 
 export const algorithms = [
     binarySearch,
@@ -19,6 +20,7 @@ export const algorithms = [
     treesBfs,
     treesDfs,
     dijkstra,
+    setCover,
 ] as const;
 export type AlgorithmSlug = typeof algorithms[number]['slug'];
 
