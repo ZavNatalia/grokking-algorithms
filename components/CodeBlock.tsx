@@ -35,7 +35,8 @@ export function CodeBlock({
                 <button
                     type="button"
                     onClick={onCopy}
-                    className="rounded-md px-2 py-1 transition hover:bg-slate-700/50"
+                    className={`rounded-md px-2 py-1 transition hover:bg-slate-700/50 ${copied ? 'cursor-default' : 'cursor-pointer'}`}
+
                     aria-label="Скопировать код"
                 >
                     {copied ? 'Скопировано' : 'Копировать'}

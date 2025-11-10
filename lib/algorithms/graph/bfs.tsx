@@ -61,8 +61,8 @@ const algo = {
     ),
     complexity: (
         <>
-            Время — <code>O(V + E)</code>, Память — <code>O(V)</code>, где V (Vertices) — число вершин графа,
-            E (Edges) — число рёбер графа</>
+            Время – <code>O(V + E)</code>, Память – <code>O(V)</code>, где V (Vertices) – число вершин графа,
+            E (Edges) – число рёбер графа</>
     ),
     filename: 'bfs.ts',
     language: 'ts',
