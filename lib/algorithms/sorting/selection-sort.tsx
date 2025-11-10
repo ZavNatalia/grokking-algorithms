@@ -1,5 +1,5 @@
+import React from 'react';
 import type { Algorithm } from '@/lib/algorithms/types';
-
 function findSmallest(arr: number[]): number {
     let s = arr[0], si = 0;
     for (let i = 1; i < arr.length; i++) if (arr[i] < s) {
@@ -23,14 +23,14 @@ const algo = {
     description: (
         <>
             Проходит позиции <code>i</code> слева направо; для каждой ищет <span className='italic'>минимум</span> в
-            хвосте <code>[i..end]</code> и ставит его на место <code>i</code> (swap).
+            хвосте <code>[i..end]</code> и ставит его на позицию <code>i</code> (меняет местами с <code>arr[i]</code>).
             В немутирующей версии <span className='italic'>минимум</span> каждый раз вырезается из копии массива и
             добавляется в новый результат.
         </>
     ),
     complexity: (
         <>
-            Время – <code>(n^2)</code>, Память – <code>O(n)</code>
+            Время – <code>O(n^2)</code>, Память – <code>O(n)</code>
         </>
     ),
     filename: 'selection-sort.ts',

@@ -1,3 +1,4 @@
+import React from 'react';
 import type { Algorithm } from '../types';
 
 function factorial(n: number): number {

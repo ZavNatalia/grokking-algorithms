@@ -1,3 +1,4 @@
+import React from 'react';
 import { Algorithm } from '../types';
 
 function binarySearch(arr: number[], target: number): number {
