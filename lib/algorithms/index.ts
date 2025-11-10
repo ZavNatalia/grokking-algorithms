@@ -6,5 +6,9 @@ import type { Algorithm } from './types';
 export const algorithms = [binarySearch, selectionSort, factorial] as const;
 export type AlgorithmSlug = typeof algorithms[number]['slug'];
 
-export const algoBySlug: Record<AlgorithmSlug, Algorithm> =
-    Object.fromEntries(algorithms.map(a => [a.slug, a])) as any;
+const entries = algorithms.map(algo => [algo.slug, algo] as const);
+
+export const algoBySlug = Object.fromEntries(entries) as Record<
+    AlgorithmSlug,
+    Algorithm
+>;

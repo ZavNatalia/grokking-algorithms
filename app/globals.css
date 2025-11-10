@@ -60,3 +60,7 @@ body {
         @apply btn btn-md bg-transparent hover:bg-slate-700/20;
     }
 }
+
+.inline-code p code {
+    @apply rounded bg-slate-800/40 px-1.5 py-[1px] font-mono text-[0.95em];
+}

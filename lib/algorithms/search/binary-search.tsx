@@ -1,4 +1,4 @@
-import { defineAlgorithm } from '../types';
+import { Algorithm } from '../types';
 
 function binarySearch(arr: number[], target: number): number {
     let low = 0, high = arr.length - 1;
@@ -14,11 +14,24 @@ function binarySearch(arr: number[], target: number): number {
 const data = [11, 33, 55, 77, 99];
 const tests = [11, 33, 99, 42];
 
-export default defineAlgorithm({
+const algo = {
     slug: 'binary-search',
     title: 'Бинарный поиск (Binary Search)',
-    description: 'Ищет значение в отсортированном по возрастанию массиве. Поддерживает диапазон [low, high], на каждом шаге берёт середину mid и сравнивает arr[mid] с target: при > сдвигает правую границу, при < – левую, при === – возвращает индекс. Останавливается, когда low > high (элемент отсутствует).',
-    complexity: 'Время: O(log n), Память: O(1)',
+    description: (
+        <>
+            Ищет значение в отсортированном по возрастанию массиве.
+            Поддерживает диапазон <code>[low, high]</code>, на каждом шаге берёт середину
+            <code>mid</code> и сравнивает <code>arr[mid]</code> с target:
+            при <code>&gt;</code> сдвигает правую границу, при
+            <code>&lt;</code> – левую, при <code>===</code> – возвращает индекс.
+            Останавливается, когда <code>low &gt; high</code> (элемент отсутствует).
+        </>
+    ),
+    complexity: (
+        <>
+            Время – <code>O(log n)</code>, Память – <code>O(1)</code>
+        </>
+    ),
     filename: 'binary-search.ts',
     language: 'ts',
     buildSource: () => {
@@ -38,4 +51,6 @@ const myList = ${JSON.stringify(data)};
 ${calls}
     `);
     },
-});
+} satisfies Algorithm;
+
+export default algo;

@@ -14,16 +14,21 @@ export default async function Page( { params }: { params: Promise<{ slug: string
 
     const source = algo.buildSource();
 
+    const codeStyle = '[&_code]:rounded [&_code]:bg-slate-800/40\n' +
+        '                [&_code]:px-1.5 [&_code]:py-[1px]\n' +
+        '                [&_code]:font-mono [&_code]:text-[0.95em]'
+
     return (
         <>
             <BackButton />
             <h2 className="mb-2 text-center text-2xl">{algo.title}</h2>
-            <p className="mb-4 text-base opacity-90">
+            <div className={codeStyle + ' mb-4 opacity-80'}>
                 {algo.description}
-            </p>
-            <p>
-                <b>Сложность:</b> {algo.complexity}
-            </p>
+            </div>
+            <div className={'opacity-80'}>
+                <b>Сложность:</b>
+                <p className={codeStyle}>{algo.complexity}</p>
+            </div>
             <CodeBlock code={source} language={algo.language ?? 'ts'} filename={algo.filename} />
         </>
     );
