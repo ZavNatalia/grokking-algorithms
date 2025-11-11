@@ -21,7 +21,7 @@ export default async function Page( { params }: { params: Promise<{ slug: string
     return (
         <>
             <BackButton />
-            <h2 className="mb-2 text-center text-2xl">{algo.title}</h2>
+            <h2 className="my-4 text-center text-2xl mx-auto max-w-2xl">{algo.title}</h2>
             <div className={codeStyle + ' mb-4 opacity-80'}>
                 {algo.description}
             </div>

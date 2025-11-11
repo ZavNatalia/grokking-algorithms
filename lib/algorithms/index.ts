@@ -11,6 +11,7 @@ import dijkstra from '@/lib/algorithms/graphs/dijkstra';
 import setCover from '@/lib/algorithms/greedy/set-cover';
 import knapsack from '@/lib/algorithms/dynamic-programming/knapsack';
 import longestCommonSubstring from '@/lib/algorithms/dynamic-programming/longest-common-substring';
+import longestCommonSubsequence from '@/lib/algorithms/dynamic-programming/longest-common-subsequence';
 
 export const algorithms = [
     binarySearch,
@@ -24,7 +25,8 @@ export const algorithms = [
     dijkstra,
     setCover,
     knapsack,
-    longestCommonSubstring
+    longestCommonSubstring,
+    longestCommonSubsequence,
 ] as const;
 export type AlgorithmSlug = typeof algorithms[number]['slug'];
 

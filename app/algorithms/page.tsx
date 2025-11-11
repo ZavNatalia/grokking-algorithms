@@ -13,7 +13,6 @@ export default function Page() {
                             className="block rounded-2xl border border-slate-700/50 p-4 hover:bg-slate-800/30"
                         >
                             <div className="font-medium">{a.title}</div>
-                            <div className="text-xs opacity-70">{a.complexity}</div>
                         </Link>
                     </li>
                 ))}
