@@ -9,6 +9,7 @@ import treesBfs from '@/lib/algorithms/trees/bfs';
 import treesDfs from '@/lib/algorithms/trees/dfs';
 import dijkstra from '@/lib/algorithms/graphs/dijkstra';
 import setCover from '@/lib/algorithms/greedy/set-cover';
+import knapsack from '@/lib/algorithms/dynamic-programming/knapsack';
 
 export const algorithms = [
     binarySearch,
@@ -21,6 +22,8 @@ export const algorithms = [
     treesDfs,
     dijkstra,
     setCover,
+    knapsack
+
 ] as const;
 export type AlgorithmSlug = typeof algorithms[number]['slug'];
 
