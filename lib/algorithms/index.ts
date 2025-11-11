@@ -10,6 +10,7 @@ import treesDfs from '@/lib/algorithms/trees/dfs';
 import dijkstra from '@/lib/algorithms/graphs/dijkstra';
 import setCover from '@/lib/algorithms/greedy/set-cover';
 import knapsack from '@/lib/algorithms/dynamic-programming/knapsack';
+import longestCommonSubstring from '@/lib/algorithms/dynamic-programming/longest-common-substring';
 
 export const algorithms = [
     binarySearch,
@@ -22,8 +23,8 @@ export const algorithms = [
     treesDfs,
     dijkstra,
     setCover,
-    knapsack
-
+    knapsack,
+    longestCommonSubstring
 ] as const;
 export type AlgorithmSlug = typeof algorithms[number]['slug'];
 
