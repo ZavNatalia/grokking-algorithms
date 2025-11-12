@@ -1,7 +1,6 @@
 import React from 'react';
 import { Algorithm } from '../types';
 
-// Реальная функция для расчёта примеров
 function lcsEval(a: string, b: string): { length: number; subsequence: string } {
     const n = a.length, m = b.length;
     const dp: number[][] = Array.from({ length: n + 1 }, () => Array(m + 1).fill(0));
