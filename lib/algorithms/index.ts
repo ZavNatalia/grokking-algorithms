@@ -12,7 +12,9 @@ import setCover from '@/lib/algorithms/greedy/set-cover';
 import knapsack from '@/lib/algorithms/dynamic-programming/knapsack';
 import longestCommonSubstring from '@/lib/algorithms/dynamic-programming/longest-common-substring';
 import longestCommonSubsequence from '@/lib/algorithms/dynamic-programming/longest-common-subsequence';
-import knn from '@/lib/algorithms/ml/knn';
+import knnRecommender from '@/lib/algorithms/ml/knn-recommender';
+import knnRegression from '@/lib/algorithms/ml/knn-regression';
+
 
 export const algorithms = [
     binarySearch,
@@ -28,7 +30,8 @@ export const algorithms = [
     knapsack,
     longestCommonSubstring,
     longestCommonSubsequence,
-    knn,
+    knnRecommender,
+    knnRegression,
 ] as const;
 export type AlgorithmSlug = typeof algorithms[number]['slug'];
 

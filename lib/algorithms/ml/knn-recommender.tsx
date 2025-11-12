@@ -59,8 +59,8 @@ const calls = scenarios.map(({ k, res }) =>
 ).join('\n');
 
 const algo = {
-    slug: 'ml-knn-recommender',
-    title: 'k-NN: рекомендательная система на основе схожести пользователей',
+    slug: 'ml-knn-classification',
+    title: 'k-NN классификация – распределение по категориям',
     description: (
         <div>
             <p>
@@ -90,7 +90,7 @@ function euclidOnOverlap(a: Record<string, number>, b: Record<string, number>): 
   const common = Object.keys(a).filter(k => k in b); 
   // common – это массив общих ключей двух объектов a и b, то есть пересечение их ключей.
   if (common.length === 0) return Infinity;
-  let sumSq = 0; // sumSq — это накопитель суммы квадратов разностей оценок на пересечении ключей.
+  let sumSq = 0; // sumSq – это накопитель суммы квадратов разностей оценок на пересечении ключей.
   for (const k of common) sumSq += (a[k] - b[k]) ** 2;
   return Math.sqrt(sumSq);
 }
