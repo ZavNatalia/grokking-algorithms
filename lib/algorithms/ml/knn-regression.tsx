@@ -135,7 +135,7 @@ const algo = {
             выходной день влияет на спрос сильнее, чем погода.
             <br/>
             <b>Расстояние:</b> <code>d = √(Σ w<sub>i</sub>·Δ<sub>i</sub><sup>2</sup>)</code>,
-            где <i>w<sub>i</sub></i> — вес признака, <i>Δ<sub>i</sub></i> — разность.
+            где <i>w<sub>i</sub></i> – вес признака, <i>Δ<sub>i</sub></i> – разность.
             <br/>
             <div className='my-4 max-w-2xl mx-auto'>
                 <p className='text-center italic'>Датасет: погода → спрос на хлеб</p>

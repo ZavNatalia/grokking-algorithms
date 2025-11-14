@@ -86,10 +86,10 @@ export function DSTabsVertical({ items }: { items: DSItemView[] }) {
                 </ul>
 
                 <div className="mb-3 overflow-x-auto">
-                    <table className="w-full text-xs">
+                    <table className="w-fit text-sm">
                         <tbody>
                         {current.complexity.map((r, k) => (
-                            <tr key={k} className="odd:bg-slate-800/30">
+                            <tr key={k} className="odd:bg-slate-700/30 bg-slate-700/10">
                                 <td className="px-2 py-1 opacity-80 whitespace-nowrap">{r.op}</td>
                                 <td className="px-2 py-1 font-mono">{r.bigO}</td>
                                 <td className="px-2 py-1 opacity-70">{r.note ?? ''}</td>
