@@ -9,6 +9,10 @@ const navLinks = [
         title: 'Алгоритмы',
         href: '/algorithms',
     },
+    {
+        title: 'Структуры данных',
+        href: '/data-structures',
+    },
 
 ]
 

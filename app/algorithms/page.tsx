@@ -6,7 +6,7 @@ export default function AlgorithmsPage() {
         <div className="space-y-6">
             <h1 className="text-center text-3xl font-semibold">Алгоритмы</h1>
             {ALGORITHM_CATEGORIES.map(group => (
-                <section key={group.id} className="scroll-mt-16 space-y-3">
+                <section key={group.id} className="space-y-3">
                     <h2 className="text-xl font-semibold">
                         {group.title} <span className="text-sm opacity-60">({group.items.length})</span>
                     </h2>

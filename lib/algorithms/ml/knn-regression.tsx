@@ -5,7 +5,8 @@ import { DatasetTable } from '@/components/DatasetTable';
 type Sample = { temp: number; humidity: number; rain: 0 | 1; weekend: 0 | 1; sold: number };
 type Query = Omit<Sample, 'sold'>;
 type Weights = Readonly<{ temp: number; humidity: number; rain: number; weekend: number }>;
-const DEFAULT_WEIGHTS = { temp: 1, humidity: 1, rain: 1, weekend: 2 } as const satisfies Weights;
+const DEFAULT_WEIGHTS = {temp: 1, humidity: 1, rain: 1, weekend: 2} as const satisfies Weights;
+
 function computeNorms(data: Sample[]) {
     const tMin = Math.min(...data.map(d => d.temp));
     const tMax = Math.max(...data.map(d => d.temp));
@@ -26,23 +27,23 @@ function euclid4WeightedLinear(
     norms: ReturnType<typeof computeNorms>,
     w: Weights = DEFAULT_WEIGHTS
 ): number {
-    const { tMin, tMax, hMin, hMax } = norms;
+    const {tMin, tMax, hMin, hMax} = norms;
 
     const aTemp = norm01(a.temp, tMin, tMax);
     const bTemp = norm01(b.temp, tMin, tMax);
-    const aHum  = norm01(a.humidity, hMin, hMax);
-    const bHum  = norm01(b.humidity, hMin, hMax);
+    const aHum = norm01(a.humidity, hMin, hMax);
+    const bHum = norm01(b.humidity, hMin, hMax);
 
     const dTemp = aTemp - bTemp;
-    const dHum  = aHum  - bHum;
+    const dHum = aHum - bHum;
     const dRain = (+a.rain) - (+b.rain);
     const dWend = (+a.weekend) - (+b.weekend);
 
     const sum =
-        w.temp     * (dTemp * dTemp) +
-        w.humidity * (dHum  * dHum)  +
-        w.rain     * (dRain * dRain) +
-        w.weekend  * (dWend * dWend);
+        w.temp * (dTemp * dTemp) +
+        w.humidity * (dHum * dHum) +
+        w.rain * (dRain * dRain) +
+        w.weekend * (dWend * dWend);
 
     return Math.sqrt(sum);
 }
@@ -71,23 +72,23 @@ function knnPredictDemand(
 
 // Датасет
 // Формат: [temp°C, humidity%, rain, weekend, sold]
-type Row = readonly [number, number, 0|1, 0|1, number];
+type Row = readonly [number, number, 0 | 1, 0 | 1, number];
 
 const DATA: readonly Row[] = [
     // temp  hum  rain wknd sold
-    [  10,  85,   1,   0,  130 ], // холодный дождливый будний
-    [  12,  80,   1,   1,  165 ], // холодный дождливый выходной
-    [  14,  75,   1,   1,  160 ], // холодный дождливый выходной
-    [  15,  70,   0,   0,  105 ], // холодный сухой будний
-    [  16,  68,   0,   1,  135 ], // прохладный сухой выходной
-    [  18,  65,   0,   0,  100 ], // комфортный будний
-    [  22,  55,   1,   0,  110 ], // тёплый дождливый будний
-    [  24,  50,   0,   0,   90 ], // тёплый будний
-    [  28,  45,   0,   1,  130 ], // жаркий выходной
+    [10, 85, 1, 0, 130], // холодный дождливый будний
+    [12, 80, 1, 1, 165], // холодный дождливый выходной
+    [14, 75, 1, 1, 160], // холодный дождливый выходной
+    [15, 70, 0, 0, 105], // холодный сухой будний
+    [16, 68, 0, 1, 135], // прохладный сухой выходной
+    [18, 65, 0, 0, 100], // комфортный будний
+    [22, 55, 1, 0, 110], // тёплый дождливый будний
+    [24, 50, 0, 0, 90], // тёплый будний
+    [28, 45, 0, 1, 130], // жаркий выходной
 ] as const;
 
 const dataForEval: Sample[] = DATA.map(([temp, humidity, rain, weekend, sold]) =>
-    ({ temp, humidity, rain, weekend, sold })
+    ({temp, humidity, rain, weekend, sold})
 );
 
 const tests = [
@@ -132,15 +133,20 @@ const algo = {
             <br/>
             <b>Веса признаков:</b> позволяют задать важность – например,
             выходной день влияет на спрос сильнее, чем погода.
+            <br/>
+            <b>Расстояние:</b> <code>d = √(Σ w<sub>i</sub>·Δ<sub>i</sub><sup>2</sup>)</code>,
+            где <i>w<sub>i</sub></i> — вес признака, <i>Δ<sub>i</sub></i> — разность.
+            <br/>
             <div className='my-4 max-w-2xl mx-auto'>
                 <p className='text-center italic'>Датасет: погода → спрос на хлеб</p>
-                <DatasetTable data={dataForEval} />
+                <DatasetTable data={dataForEval}/>
             </div>
         </>
     ),
     complexity: (
         <>
-            Наивно: время – <code>O(n&nbsp;log&nbsp;n)</code> на сортировку; можно <code>O(n + k&nbsp;log&nbsp;k)</code> частичным отбором.
+            Наивно: время – <code>O(n&nbsp;log&nbsp;n)</code> на сортировку; можно <code>O(n +
+            k&nbsp;log&nbsp;k)</code> частичным отбором.
             Память – <code>O(n)</code>.
         </>
     ),
@@ -173,7 +179,7 @@ function norm01(x: number, min: number, max: number, clip = false) {
 
 /**
  * Взвешенное евклидово расстояние между двумя днями по 4 признакам.
- * Формула: √(Σ wᵢ · Δᵢ²), где wᵢ – вес, Δᵢ – разность по признаку.
+ * Формула: d = √(Σ wᵢ·Δᵢ²), где wᵢ – вес, Δᵢ – разность по признаку.
  * 
  * Веса позволяют управлять важностью признаков:
  * - вес > 1 делает признак более значимым (вклад в расстояние больше)
