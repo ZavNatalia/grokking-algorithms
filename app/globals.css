@@ -24,6 +24,8 @@ html, body {
     width: 100%;
 }
 
+html { scrollbar-gutter: stable both-edges; }
+
 body {
     background: var(--background);
     color: var(--foreground);
