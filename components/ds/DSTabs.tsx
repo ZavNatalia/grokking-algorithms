@@ -31,7 +31,7 @@ export function DSTabs({ items }: { items: DSItemView[] }) {
 
 
     const idx = slugs.indexOf(active);
-    const current = items[idx >= 0 ? idx : 0];
+    const current: DSItemView = items[idx >= 0 ? idx : 0];
 
     return (
         <div className="grid gap-4 lg:grid-cols-[300px_minmax(0,1fr)] xl:grid-cols-[360px_minmax(0,1fr)">

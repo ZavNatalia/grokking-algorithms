@@ -1,6 +1,7 @@
 import { CodeBlock } from '@/components/CodeBlock';
+import type { DSItemView } from '@/lib/ds/types';
 
-export default function DSContent({current}) {
+export default function DSContent({current}: {current: DSItemView}) {
     return (
         <section
             role="tabpanel"
