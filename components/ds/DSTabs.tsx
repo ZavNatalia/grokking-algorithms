@@ -1,17 +1,27 @@
 'use client';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState, startTransition } from 'react';
 import type { DSItemView } from '@/lib/ds/types';
 import DSContent from '@/components/ds/DSContent';
 
 export function DSTabs({ items }: { items: DSItemView[] }) {
     const slugs = useMemo(() => items.map(i => i.slug), [items]);
     const initial = slugs[0] ?? '';
+
     const [active, setActive] = useState<string>(initial);
     const tabRefs = useRef<HTMLButtonElement[]>([]);
 
+    // После монтирования читаем hash
     useEffect(() => {
         const h = window.location.hash.slice(1);
-        if (slugs.includes(h)) setActive(h);
+        if (slugs.includes(h)) {
+            startTransition(() => {
+                setActive(h);
+            });
+        }
+    }, [slugs]);
+
+    // Слушаем изменения hash
+    useEffect(() => {
         const onHash = () => {
             const hh = window.location.hash.slice(1);
             if (slugs.includes(hh)) setActive(hh);
@@ -20,21 +30,24 @@ export function DSTabs({ items }: { items: DSItemView[] }) {
         return () => window.removeEventListener('hashchange', onHash);
     }, [slugs]);
 
+    // Обновляем hash в URL
     useEffect(() => {
-        if (active) history.replaceState(null, '', `#${active}`);
+        if (active && window.location.hash.slice(1) !== active) {
+            history.replaceState(null, '', `#${active}`);
+        }
     }, [active]);
 
+    // Скроллим активную кнопку в видимую область
     useEffect(() => {
         const i = slugs.indexOf(active);
-        if (i >= 0) tabRefs.current[i]?.scrollIntoView({ block: 'nearest' });
+        if (i >= 0) tabRefs.current[i]?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
     }, [active, slugs]);
-
 
     const idx = slugs.indexOf(active);
     const current: DSItemView = items[idx >= 0 ? idx : 0];
 
     return (
-        <div className="grid gap-4 lg:grid-cols-[300px_minmax(0,1fr)] xl:grid-cols-[360px_minmax(0,1fr)">
+        <div className="grid gap-4 lg:grid-cols-[300px_minmax(0,1fr)] xl:grid-cols-[360px_minmax(0,1fr)]">
             <aside className="lg:sticky lg:top-24 h-max">
                 <ul role="tablist" aria-orientation="vertical" className="space-y-2">
                     {items.map((ds, i) => {
@@ -67,7 +80,7 @@ export function DSTabs({ items }: { items: DSItemView[] }) {
                     })}
                 </ul>
             </aside>
-            <DSContent current={current}/>
+            <DSContent current={current} />
         </div>
     );
 }
