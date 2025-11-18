@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from '@/components/header/Header';
+import Header from '@/components/Header';
 import { Inter, Roboto_Mono } from 'next/font/google'
+import Footer from '@/components/Footer';
 
 const inter = Inter({
     subsets: ['latin'],
@@ -28,13 +29,13 @@ export default function RootLayout({
     return (
         <html lang="en">
         <body
-            className={`${inter.variable} ${roboto_mono.variable} antialiased flex flex-col`}
+            className={`${inter.variable} ${roboto_mono.variable} antialiased flex flex-col relative`}
         >
         <Header/>
-        <div className='flex-1'>
+        <div className='flex-1 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950'>
             {children}
         </div>
-
+        <Footer />
         </body>
         </html>
     );
