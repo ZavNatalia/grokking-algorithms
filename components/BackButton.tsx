@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { useRouter } from 'next/navigation';
 import * as React from 'react';
 
@@ -9,10 +9,10 @@ type BackButtonProps = {
 };
 
 export function BackButton({
-                               fallbackHref,
-                               children = 'Назад',
-                               className = 'btn-secondary',
-                           }: BackButtonProps) {
+    fallbackHref,
+    children = 'Назад',
+    className = 'btn-secondary',
+}: BackButtonProps) {
     const router = useRouter();
     const onClick = () => {
         if (typeof window !== 'undefined' && window.history.length > 1) {
@@ -22,7 +22,12 @@ export function BackButton({
         }
     };
     return (
-        <button type="button" aria-label="Назад" className={className} onClick={onClick}>
+        <button
+            type="button"
+            aria-label="Назад"
+            className={className}
+            onClick={onClick}
+        >
             {children}
         </button>
     );

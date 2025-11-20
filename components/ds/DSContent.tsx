@@ -1,7 +1,7 @@
 import { CodeBlock } from '@/components/CodeBlock';
 import type { DSItemView } from '@/lib/ds/types';
 
-export default function DSContent({current}: {current: DSItemView}) {
+export default function DSContent({ current }: { current: DSItemView }) {
     return (
         <section
             role="tabpanel"
@@ -14,8 +14,10 @@ export default function DSContent({current}: {current: DSItemView}) {
 
             <ul className="mb-3 flex flex-wrap gap-2">
                 {current.useWhen.map((t, j) => (
-                    <li key={j}
-                        className="rounded-xl border border-white/10 bg-slate-700/40 px-2 py-0.5 text-[11px] uppercase">
+                    <li
+                        key={j}
+                        className="rounded-xl border border-white/10 bg-slate-700/40 px-2 py-0.5 text-[11px] uppercase"
+                    >
                         {t}
                     </li>
                 ))}
@@ -24,18 +26,31 @@ export default function DSContent({current}: {current: DSItemView}) {
             <div className="mb-3 overflow-x-auto">
                 <table className="w-fit text-sm">
                     <tbody>
-                    {current.complexity.map((r, k) => (
-                        <tr key={k} className="odd:bg-slate-700/30 bg-slate-700/10">
-                            <td className="px-2 py-1 opacity-80 whitespace-nowrap">{r.op}</td>
-                            <td className="px-2 py-1 font-mono">{r.bigO}</td>
-                            <td className="px-2 py-1 opacity-70">{r.note ?? ''}</td>
-                        </tr>
-                    ))}
+                        {current.complexity.map((r, k) => (
+                            <tr
+                                key={k}
+                                className="odd:bg-slate-700/30 bg-slate-700/10"
+                            >
+                                <td className="px-2 py-1 opacity-80 whitespace-nowrap">
+                                    {r.op}
+                                </td>
+                                <td className="px-2 py-1 font-mono">
+                                    {r.bigO}
+                                </td>
+                                <td className="px-2 py-1 opacity-70">
+                                    {r.note ?? ''}
+                                </td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>
 
-            <CodeBlock code={current.source} language={current.language} filename={current.filename}/>
+            <CodeBlock
+                code={current.source}
+                language={current.language}
+                filename={current.filename}
+            />
         </section>
-    )
+    );
 }

@@ -3,8 +3,11 @@ import { Algorithm } from '../types';
 
 type Ratings = Record<string, Record<string, number>>;
 
-function euclidOnOverlap(a: Record<string, number>, b: Record<string, number>): number {
-    const common = Object.keys(a).filter(k => k in b);
+function euclidOnOverlap(
+    a: Record<string, number>,
+    b: Record<string, number>
+): number {
+    const common = Object.keys(a).filter((k) => k in b);
     if (common.length === 0) return Infinity;
     let s = 0;
     for (const k of common) s += (a[k] - b[k]) ** 2;
@@ -29,7 +32,7 @@ function knnRecommendEval(data: Ratings, user: string, k: number) {
     for (const n of neighbors) {
         for (const [item, rating] of Object.entries(data[n.name])) {
             if (seen.has(item)) continue;
-            score[item]  = (score[item]  ?? 0) + n.sim * rating;
+            score[item] = (score[item] ?? 0) + n.sim * rating;
             weight[item] = (weight[item] ?? 0) + n.sim;
         }
     }
@@ -38,52 +41,60 @@ function knnRecommendEval(data: Ratings, user: string, k: number) {
         .map(([item, s]) => [item, +(s / weight[item]).toFixed(2)] as const)
         .sort((a, b) => b[1] - a[1]);
 
-    return { neighbors: neighbors.map(n => n.name), recs };
+    return { neighbors: neighbors.map((n) => n.name), recs };
 }
 
 const ratingsForEval: Ratings = {
-    you:   { Inception: 5, Matrix: 4 },
+    you: { Inception: 5, Matrix: 4 },
     alice: { Inception: 5, Matrix: 5, Titanic: 1 },
-    bob:   { Inception: 4, Matrix: 4, Avatar: 3, Titanic: 1 },
+    bob: { Inception: 4, Matrix: 4, Avatar: 3, Titanic: 1 },
     carol: { Matrix: 5, Interstellar: 5, Avatar: 2 },
-    dave:  { Inception: 2, Titanic: 5, Avatar: 4 },
-    eve:   { Matrix: 4, Interstellar: 4, Inception: 5 },
+    dave: { Inception: 2, Titanic: 5, Avatar: 4 },
+    eve: { Matrix: 4, Interstellar: 4, Inception: 5 },
 };
 
-const scenarios = [2, 3, 4].map(k => ({ k, res: knnRecommendEval(ratingsForEval, 'you', k) }));
+const scenarios = [2, 3, 4].map((k) => ({
+    k,
+    res: knnRecommendEval(ratingsForEval, 'you', k),
+}));
 
-const calls = scenarios.map(({ k, res }) =>
-    `knnRecommend(ratings, 'you', ${k}); 
+const calls = scenarios
+    .map(
+        ({ k, res }) =>
+            `knnRecommend(ratings, 'you', ${k}); 
     // neighbors -> ${JSON.stringify(res.neighbors)}; 
     // top -> ${JSON.stringify(res.recs)}`
-).join('\n');
+    )
+    .join('\n');
 
 const algo = {
     slug: 'ml-knn-classification',
     title: 'k-NN классификация – распределение по категориям',
     description: (
         <div>
+            <p>Алгоритм k-ближайших соседей (k-Nearest Neighbors).</p>
             <p>
-                Алгоритм k-ближайших соседей (k-Nearest Neighbors).
+                <b>Цель</b>: предсказать, какие фильмы (товары/треки) понравятся
+                пользователю.
             </p>
             <p>
-                <b>Цель</b>: предсказать, какие фильмы (товары/треки) понравятся пользователю.
-            </p>
-            <p>
-                <b>Идея k-NN</b>: находим <i>k</i> ближайших по вкусу пользователей (по общим оценкам), затем для неоценённых фильмов
+                <b>Идея k-NN</b>: находим <i>k</i> ближайших по вкусу
+                пользователей (по общим оценкам), затем для неоценённых фильмов
                 усредняем рейтинги соседей с весами по схожести.
             </p>
         </div>
     ),
     complexity: (
         <>
-            Наивно: время – <code>O(U&nbsp;log&nbsp;U + k·I)</code> (сортируем пользователей и агрегируем по фильмам),
-            память – <code>O(U+I)</code>.
+            Наивно: время – <code>O(U&nbsp;log&nbsp;U + k·I)</code> (сортируем
+            пользователей и агрегируем по фильмам), память – <code>O(U+I)</code>
+            .
         </>
     ),
     filename: 'knnRecommender.ts',
     language: 'ts',
-    buildSource: () => `
+    buildSource: () =>
+        `
 type Ratings = Record<string, Record<string, number>>;
 
 function euclidOnOverlap(a: Record<string, number>, b: Record<string, number>): number {

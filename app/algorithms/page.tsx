@@ -5,13 +5,16 @@ export default function AlgorithmsPage() {
     return (
         <div className="space-y-6">
             <h1 className="text-center text-3xl font-semibold">Алгоритмы</h1>
-            {ALGORITHM_CATEGORIES.map(group => (
+            {ALGORITHM_CATEGORIES.map((group) => (
                 <section key={group.id} className="space-y-3">
                     <h2 className="text-xl font-semibold">
-                        {group.title} <span className="text-sm opacity-60">({group.items.length})</span>
+                        {group.title}{' '}
+                        <span className="text-sm opacity-60">
+                            ({group.items.length})
+                        </span>
                     </h2>
                     <ul className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-                        {group.items.map(a => (
+                        {group.items.map((a) => (
                             <li key={a.slug}>
                                 <Link
                                     href={`/algorithms/${a.slug}`}
@@ -22,7 +25,7 @@ export default function AlgorithmsPage() {
                             </li>
                         ))}
                     </ul>
-                    <hr className="border-slate-700/60"/>
+                    <hr className="border-slate-700/60" />
                 </section>
             ))}
         </div>

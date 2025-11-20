@@ -8,6 +8,4 @@ export type Algorithm = {
     filename: string;
     language?: string;
     buildSource: () => string;
-} ;
-
-
+};

@@ -11,12 +11,11 @@ export const metadata = {
 
 export default function LandingPage() {
     return (
-        <div
-            className="h-full relative  text-slate-100 ">
-            <BackgroundPattern/>
+        <div className="h-full relative  text-slate-100 ">
+            <BackgroundPattern />
             <main className="max-w-7xl mx-auto px-6 py-20">
-                <Hero/>
-                <Features/>
+                <Hero />
+                <Features />
             </main>
         </div>
     );

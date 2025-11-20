@@ -7,19 +7,20 @@ const algo = {
     description: (
         <>
             Файловая система – это дерево: каталоги – узлы, файлы – листья.
-            Обход в ширину (BFS) идёт по уровням, используя очередь, и собирает пути ко всем файлам.
-            Подходит для задач вроде: вывести имена всех файлов в каталоге <code>pics</code>, включая все подкаталоги.
+            Обход в ширину (BFS) идёт по уровням, используя очередь, и собирает
+            пути ко всем файлам. Подходит для задач вроде: вывести имена всех
+            файлов в каталоге <code>pics</code>, включая все подкаталоги.
         </>
     ),
     complexity: (
         <>
-            Время – <code>O(N)</code> по числу записей (файлы+каталоги), память – <code>O(W)</code>, где <i>W</i> –
-            максимальная ширина уровня.
+            Время – <code>O(N)</code> по числу записей (файлы+каталоги), память
+            – <code>O(W)</code>, где <i>W</i> – максимальная ширина уровня.
         </>
     ),
     filename: 'walkDirBfs.ts',
     language: 'ts',
-    buildSource: () => (
+    buildSource: () =>
         `import { readdir, stat } from 'node:fs/promises';
 import type { Dirent } from 'node:fs';
 import { join, basename } from 'node:path';
@@ -80,8 +81,7 @@ export async function walkDirBfs(root: string, opts: WalkOptions = {}): Promise<
   }
 
   return files;
-}`
-    ),
+}`,
 } satisfies Algorithm;
 
 export default algo;

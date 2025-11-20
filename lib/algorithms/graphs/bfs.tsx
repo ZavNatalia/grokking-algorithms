@@ -53,21 +53,24 @@ const algo = {
     title: 'Графы: поиск в ширину (Breadth-First Search)',
     description: (
         <>
-            Обходит граф слоями с помощью очереди: сначала все соседние вершины, затем их соседей и т.д.
-            Первый найденный по предикату узел даёт <span className="italic">кратчайший путь</span> по числу рёбер.
-            Используются <code>queue</code> для обхода и <code>visited</code> для защиты от повторов; путь
-            восстанавливается через <code>parent</code>.
+            Обходит граф слоями с помощью очереди: сначала все соседние вершины,
+            затем их соседей и т.д. Первый найденный по предикату узел даёт{' '}
+            <span className="italic">кратчайший путь</span> по числу рёбер.
+            Используются <code>queue</code> для обхода и <code>visited</code>{' '}
+            для защиты от повторов; путь восстанавливается через{' '}
+            <code>parent</code>.
         </>
     ),
     complexity: (
         <>
-            Время – <code>O(V + E)</code>, Память – <code>O(V)</code>, где V (Vertices) – число вершин графа,
-            E (Edges) – число рёбер графа</>
+            Время – <code>O(V + E)</code>, Память – <code>O(V)</code>, где V
+            (Vertices) – число вершин графа, E (Edges) – число рёбер графа
+        </>
     ),
     filename: 'bfs.ts',
     language: 'ts',
     buildSource: () => {
-        const isSeller = (name: string) => name.endsWith('m');   // «продавец манго»: имя оканчивается на 'm'
+        const isSeller = (name: string) => name.endsWith('m'); // «продавец манго»: имя оканчивается на 'm'
         const noSuch = (name: string) => name.startsWith('z');
 
         const res1 = bfsPath(graphData, 'you', isSeller);

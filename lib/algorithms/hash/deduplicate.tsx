@@ -31,10 +31,12 @@ const algo = {
     title: 'Хеш-таблица: удаление дубликатов (Deduplicate)',
     description: (
         <>
-            Использует хеш-таблицу (в JS – <code>Set</code>) для отметки «уже встречено». Идём слева направо:
-            если элемента ещё нет в множестве – добавляем в результат и помечаем как «seen»; если был – пропускаем.
-            В итоге получаем массив без дубликатов, сохраняя порядок первого появления. Эквивалент короткой записи{' '}
-            <code>[...new Set(arr)]</code>.
+            Использует хеш-таблицу (в JS – <code>Set</code>) для отметки «уже
+            встречено». Идём слева направо: если элемента ещё нет в множестве –
+            добавляем в результат и помечаем как «seen»; если был – пропускаем.
+            В итоге получаем массив без дубликатов, сохраняя порядок первого
+            появления. Эквивалент короткой записи <code>[...new Set(arr)]</code>
+            .
         </>
     ),
     complexity: (
@@ -46,10 +48,24 @@ const algo = {
     language: 'ts',
     buildSource: () => {
         const calls = tests
-            .map(arr => {
+            .map((arr) => {
                 const input = JSON.stringify(arr);
-                const out1 = JSON.stringify(dedupIterative(arr as readonly (number | string)[] as (number | string)[]));
-                const out2 = JSON.stringify(dedupWithSet(arr as readonly (number | string)[] as (number | string)[]));
+                const out1 = JSON.stringify(
+                    dedupIterative(
+                        arr as readonly (number | string)[] as (
+                            | number
+                            | string
+                        )[]
+                    )
+                );
+                const out2 = JSON.stringify(
+                    dedupWithSet(
+                        arr as readonly (number | string)[] as (
+                            | number
+                            | string
+                        )[]
+                    )
+                );
                 return `dedupIterative(${input}) // -> ${out1}\ndedupWithSet(${input}) // -> ${out2}`;
             })
             .join('\n\n');
