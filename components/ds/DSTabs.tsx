@@ -74,7 +74,7 @@ export function DSTabs({ items }: { items: DSItemView[] }) {
             <div ref={dropdownRef} className="relative lg:hidden">
                 <button
                     onClick={() => setIsDropdownOpen((prev) => !prev)}
-                    className="flex w-full items-center justify-between rounded-xl bg-slate-800 px-4 py-3 text-left text-sm text-white"
+                    className="flex w-full items-center justify-between rounded-xl bg-slate-800 px-4 py-3 text-left text-white"
                     aria-expanded={isDropdownOpen}
                     aria-haspopup="listbox"
                 >
@@ -131,7 +131,7 @@ export function DSTabs({ items }: { items: DSItemView[] }) {
                                     aria-selected={selected}
                                     aria-controls={`panel-${ds.slug}`}
                                     id={`tab-${ds.slug}`}
-                                    className={`w-full cursor-pointer rounded-xl px-3 py-2 text-left text-sm transition ${
+                                    className={`w-full cursor-pointer rounded-xl px-3 py-2 text-left transition ${
                                         selected
                                             ? 'bg-slate-800 text-white'
                                             : 'bg-slate-800/40 hover:bg-slate-800/60'

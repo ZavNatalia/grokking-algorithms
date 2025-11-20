@@ -71,7 +71,7 @@ export default function Features() {
                     <h3 className="text-xl font-semibold mb-2">
                         {feature.title}
                     </h3>
-                    <p className="text-slate-400 text-sm leading-relaxed">
+                    <p className="text-slate-400 leading-relaxed">
                         {feature.description}
                     </p>
                 </div>

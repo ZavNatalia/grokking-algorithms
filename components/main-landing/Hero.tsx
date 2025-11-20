@@ -4,7 +4,7 @@ import React from 'react';
 export default function Hero() {
     return (
         <div className="max-w-3xl">
-            <div className="pointer-events-none inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-gray-400 text-xs italic mb-2">
+            <div className="pointer-events-none inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-gray-400 text-sm italic mb-2">
                 <svg
                     className="w-4 h-4"
                     fill="currentColor"

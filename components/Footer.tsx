@@ -12,7 +12,7 @@ export default function Footer() {
         <footer className="border-t bg-slate-950 border-slate-800/50">
             <div className="max-w-7xl mx-auto px-6 py-4">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-                    <p className="text-xs text-slate-400">
+                    <p className="text-sm text-slate-400">
                         &copy; {year} {SITE_NAME}
                     </p>
                     <div className="flex items-center gap-6">
@@ -33,7 +33,7 @@ export default function Footer() {
                                     clipRule="evenodd"
                                 />
                             </svg>
-                            <span className="text-xs group-hover:underline">
+                            <span className="text-sm group-hover:underline">
                                 Редактировать на GitHub
                             </span>
                         </Link>
