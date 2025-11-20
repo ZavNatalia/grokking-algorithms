@@ -36,28 +36,12 @@ export const ALGORITHM_CATEGORIES: AlgorithmCategory[] = [
     { id: 'hash', title: 'Хеш-таблицы', items: [deduplicate] },
     { id: 'ml', title: 'ML / k-NN', items: [knnRecommender, knnRegression] },
 ];
-export const algorithms = [
-    binarySearch,
-    selectionSort,
-    factorial,
-    quicksort,
-    deduplicate,
-    graphBfs,
-    bfsTree,
-    dfsTree,
-    dijkstra,
-    setCover,
-    knapsack,
-    longestCommonSubstring,
-    longestCommonSubsequence,
-    knnRecommender,
-    knnRegression,
-] as const;
+
+// Автоматически собираем все алгоритмы из категорий
+export const algorithms = ALGORITHM_CATEGORIES.flatMap((cat) => cat.items);
+
 export type AlgorithmSlug = (typeof algorithms)[number]['slug'];
 
-const entries = algorithms.map((algo) => [algo.slug, algo] as const);
-
-export const algoBySlug = Object.fromEntries(entries) as Record<
-    AlgorithmSlug,
-    Algorithm
->;
+export const algoBySlug = Object.fromEntries(
+    algorithms.map((algo) => [algo.slug, algo])
+) as Record<AlgorithmSlug, Algorithm>;

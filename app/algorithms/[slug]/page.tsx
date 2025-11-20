@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
-import { BackButton } from '@/components/BackButton';
 import { CodeBlock } from '@/components/CodeBlock';
 import { algorithms, algoBySlug } from '@/lib/algorithms';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 export function generateStaticParams() {
     return algorithms.map((a) => ({ slug: a.slug }));
@@ -25,7 +25,7 @@ export default async function Page({
 
     return (
         <>
-            <BackButton />
+            <Breadcrumbs currentTitle={algo.title} />
             <h2 className="my-4 text-center text-2xl mx-auto max-w-2xl">
                 {algo.title}
             </h2>
