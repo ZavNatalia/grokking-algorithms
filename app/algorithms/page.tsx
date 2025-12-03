@@ -9,7 +9,7 @@ export default function AlgorithmsPage() {
             <h1 className="text-center text-3xl font-semibold">Алгоритмы</h1>
 
             {/* Quick navigation */}
-            <nav className="flex flex-wrap justify-center w-full gap-2 lg:max-w-3/4 mx-auto text-sm">
+            <nav className="flex flex-wrap justify-center w-full gap-2 lg:max-w-3/4 mx-auto">
                 {ALGORITHM_CATEGORIES.map((group) => (
                     <a
                     key={group.id}
@@ -29,7 +29,7 @@ export default function AlgorithmsPage() {
             >
                 <h2 className="text-xl font-semibold">
                     {group.title}{' '}
-                    <span className="text-sm opacity-60">
+                    <span className="text-base opacity-60">
                             ({group.items.length})
                         </span>
                 </h2>

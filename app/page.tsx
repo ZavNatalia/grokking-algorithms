@@ -13,7 +13,7 @@ export default function LandingPage() {
     return (
         <div className="h-full relative  text-slate-100 ">
             <BackgroundPattern />
-            <main className="max-w-7xl mx-auto px-6 py-20">
+            <main className="max-w-7xl mx-auto px-4 lg:px-6 py-6 lg:py-20">
                 <Hero />
                 <Features />
             </main>

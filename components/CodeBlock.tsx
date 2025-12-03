@@ -32,7 +32,7 @@ export function CodeBlock({
         <div
             className={`relative my-4 overflow-hidden rounded-2xl border border-slate-700/60 ${className}`}
         >
-            <div className="flex items-center justify-between bg-slate-800/60 px-4 py-2 text-xs">
+            <div className="flex items-center justify-between bg-slate-800/60 px-4 py-2 text-base">
                 <span className="truncate">{filename ?? ''}</span>
                 <button
                     type="button"
@@ -57,7 +57,7 @@ export function CodeBlock({
                     getTokenProps,
                 }) => (
                     <pre
-                        className={`${preClass} m-0 overflow-x-auto p-4 text-sm`}
+                        className={`${preClass} m-0 overflow-x-auto p-4 text-base`}
                         style={style}
                     >
                         {tokens.map((line, i) => (

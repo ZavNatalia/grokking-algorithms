@@ -31,7 +31,7 @@ export default function Breadcrumbs({ currentTitle }: BreadcrumbsProps) {
 
     return (
         <nav aria-label="Breadcrumb" className="mb-6">
-            <ol className="flex flex-wrap items-center gap-2 text-sm text-slate-400">
+            <ol className="flex flex-wrap items-center gap-2 text-base text-slate-400">
                 <li>
                     <Link
                         href="/"

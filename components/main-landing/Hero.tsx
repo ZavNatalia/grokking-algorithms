@@ -4,9 +4,9 @@ import React from 'react';
 export default function Hero() {
     return (
         <div className="max-w-3xl">
-            <div className="pointer-events-none inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-gray-400 text-sm italic mb-2">
+            <div className="pointer-events-none inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-gray-400 italic mb-2">
                 <svg
-                    className="w-4 h-4"
+                    className="w-5 h-5"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                 >
@@ -17,7 +17,7 @@ export default function Hero() {
 
             <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight">
                 Изучайте алгоритмы{' '}
-                <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent ">
                     наглядно
                 </span>
             </h1>
@@ -32,7 +32,7 @@ export default function Hero() {
                 <Link
                     href="/data-structures"
                     title="Структуры данных"
-                    className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 rounded-xl font-semibold transition-all shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/40 hover:scale-105"
+                    className="group px-8 py-4 bg-gradient-to-r from-blue-800 to-purple-800 hover:from-blue-700 hover:to-purple-700 rounded-xl font-semibold transition-all shadow-lg shadow-blue-700/25 hover:shadow-xl hover:shadow-blue-700/40 hover:scale-105"
                 >
                     <span className="flex items-center justify-center gap-2">
                         Структуры данных

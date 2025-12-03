@@ -11,7 +11,7 @@ type Sample = {
 export function DatasetTable({ data }: { data: Sample[] }) {
     return (
         <div className="overflow-x-auto rounded-2xl border border-white/10">
-            <table className="min-w-[600px] w-full text-sm">
+            <table className="min-w-[600px] w-full">
                 <thead className="bg-slate-800/60">
                     <tr className="text-left">
                         <Th>#</Th>

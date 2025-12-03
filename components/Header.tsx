@@ -6,14 +6,14 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 const BRAND = {
-    name: 'Algorithms & Data Structures',
+    name: 'Data Structures & Algorithms',
     logo: '/logo.svg',
 };
 
 const navLinks = [
     { title: 'Главная', href: '/', exact: true },
-    { title: 'Алгоритмы', href: '/algorithms' },
     { title: 'Структуры данных', href: '/data-structures' },
+    { title: 'Алгоритмы', href: '/algorithms' },
 ];
 
 const normalize = (p: string) => (p === '/' ? '/' : p.replace(/\/+$/, ''));
@@ -51,7 +51,7 @@ export default function Header() {
                 <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
                     <Link
                         href="/"
-                        className="relative z-50 inline-flex items-center gap-2 text-sm font-medium text-slate-200"
+                        className="relative z-50 inline-flex items-center gap-2 font-medium text-slate-200"
                     >
                         <Image
                             src={BRAND.logo}
@@ -60,7 +60,7 @@ export default function Header() {
                             height={24}
                             className="rounded-full opacity-90"
                         />
-                        <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-base font-bold text-transparent md:text-xl">
+                        <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-lg font-bold text-transparent md:text-xl">
                             {BRAND.name}
                         </span>
                     </Link>
@@ -81,9 +81,9 @@ export default function Header() {
                                             aria-current={
                                                 active ? 'page' : undefined
                                             }
-                                            className={`rounded-lg px-4 py-2 text-sm font-medium transition-all ${
+                                            className={`rounded-lg px-4 py-2 font-medium transition-all ${
                                                 active
-                                                    ? 'bg-blue-500/10 text-blue-400'
+                                                    ? 'text-blue-400'
                                                     : 'text-slate-400 hover:bg-slate-800/50 hover:text-slate-200'
                                             }`}
                                         >
@@ -186,7 +186,7 @@ export default function Header() {
                             className="flex items-center gap-2 text-slate-400 transition-colors hover:text-slate-200"
                         >
                             <svg
-                                className="h-5 w-5"
+                                className="h-6 w-6"
                                 fill="currentColor"
                                 viewBox="0 0 24 24"
                             >
@@ -196,7 +196,7 @@ export default function Header() {
                                     clipRule="evenodd"
                                 />
                             </svg>
-                            <span className="text-sm">GitHub</span>
+                            <span>GitHub</span>
                         </a>
                     </div>
                 </div>

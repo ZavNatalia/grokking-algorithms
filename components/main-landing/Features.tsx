@@ -50,14 +50,14 @@ const features = [
 
 export default function Features() {
     return (
-        <div className="grid md:grid-cols-3 gap-6 mt-24">
+        <div className="grid md:grid-cols-3 gap-6 mt-8 lg:mt-24">
             {features.map((feature, index) => (
                 <div
                     key={index}
-                    className="group p-6 rounded-2xl bg-slate-800/20 border border-slate-800/50 hover:border-slate-700/50 hover:bg-slate-800/30 transition-all"
+                    className="p-6 rounded-2xl bg-slate-800/20 border border-slate-800/50"
                 >
                     <div
-                        className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
+                        className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-4 transition-transform`}
                     >
                         <svg
                             className={`w-6 h-6 ${feature.iconColor}`}
@@ -71,7 +71,7 @@ export default function Features() {
                     <h3 className="text-xl font-semibold mb-2">
                         {feature.title}
                     </h3>
-                    <p className="text-slate-400 leading-relaxed">
+                    <p className="text-lg text-slate-400 leading-relaxed">
                         {feature.description}
                     </p>
                 </div>
