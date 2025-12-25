@@ -10,7 +10,9 @@ export default function DSContent({ current }: { current: DSItemView }) {
             className="min-w-0 rounded-2xl border border-white/10 bg-slate-800/40 p-4"
         >
             <h2 className="mb-2 text-2xl font-semibold">{current.title}</h2>
-            <p className="mb-3 opacity-90 leading-relaxed">{current.definition}</p>
+            <p className="mb-3 opacity-90 leading-relaxed">
+                {current.definition}
+            </p>
 
             <ul className="mb-3 flex flex-wrap gap-2">
                 {current.useWhen.map((t, j) => (

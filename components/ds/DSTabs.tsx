@@ -52,12 +52,16 @@ export function DSTabs({ items }: { items: DSItemView[] }) {
     // Закрываем dropdown при клике вне
     useEffect(() => {
         const handleClickOutside = (e: MouseEvent) => {
-            if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+            if (
+                dropdownRef.current &&
+                !dropdownRef.current.contains(e.target as Node)
+            ) {
                 setIsDropdownOpen(false);
             }
         };
         document.addEventListener('mousedown', handleClickOutside);
-        return () => document.removeEventListener('mousedown', handleClickOutside);
+        return () =>
+            document.removeEventListener('mousedown', handleClickOutside);
     }, []);
 
     const idx = slugs.indexOf(active);
@@ -85,7 +89,12 @@ export function DSTabs({ items }: { items: DSItemView[] }) {
                         viewBox="0 0 24 24"
                         stroke="currentColor"
                     >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M19 9l-7 7-7-7"
+                        />
                     </svg>
                 </button>
                 {isDropdownOpen && (
@@ -118,7 +127,11 @@ export function DSTabs({ items }: { items: DSItemView[] }) {
 
             {/* Desktop Sidebar */}
             <aside className="hidden h-max lg:sticky lg:top-24 lg:block">
-                <ul role="tablist" aria-orientation="vertical" className="space-y-2">
+                <ul
+                    role="tablist"
+                    aria-orientation="vertical"
+                    className="space-y-2"
+                >
                     {items.map((ds, i) => {
                         const selected = ds.slug === active;
                         return (
@@ -139,8 +152,17 @@ export function DSTabs({ items }: { items: DSItemView[] }) {
                                     onClick={() => setActive(ds.slug)}
                                     onKeyDown={(e) => {
                                         const i = slugs.indexOf(active);
-                                        if (e.key === 'ArrowDown') setActive(slugs[(i + 1) % slugs.length]);
-                                        if (e.key === 'ArrowUp') setActive(slugs[(i - 1 + slugs.length) % slugs.length]);
+                                        if (e.key === 'ArrowDown')
+                                            setActive(
+                                                slugs[(i + 1) % slugs.length]
+                                            );
+                                        if (e.key === 'ArrowUp')
+                                            setActive(
+                                                slugs[
+                                                    (i - 1 + slugs.length) %
+                                                        slugs.length
+                                                ]
+                                            );
                                     }}
                                 >
                                     {ds.title}
