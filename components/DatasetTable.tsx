@@ -87,14 +87,14 @@ function Badge({
             className={
                 'inline-flex items-center gap-1 rounded-xl px-2 py-0.5 ' +
                 (on
-                    ? 'bg-blue-600/20 text-blue-200'
+                    ? 'bg-violet-600/20 text-violet-200'
                     : 'bg-slate-600/30 text-slate-200')
             }
             aria-label={on ? yes : no}
             title={on ? yes : no}
         >
             <span aria-hidden>{icon}</span>
-            <span className="uppercase tracking-wide text-[11px]">
+            <span className="uppercase tracking-wide text-xs">
                 {on ? yes : no}
             </span>
         </span>

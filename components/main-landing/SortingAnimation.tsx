@@ -25,7 +25,7 @@ export default function SortingAnimation() {
             {bars.map((bar, i) => (
                 <div
                     key={i}
-                    className="bg-sky-400 rounded-t-sm"
+                    className="bg-violet-400 rounded-t-sm"
                     style={
                         {
                             width: BAR_W,

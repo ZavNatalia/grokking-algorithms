@@ -26,13 +26,13 @@ export default async function Page({
     return (
         <>
             <Breadcrumbs currentTitle={algo.title} />
-            <h2 className="my-4 text-center text-2xl mx-auto max-w-2xl">
+            <h2 className="my-4 text-center text-3xl mx-auto max-w-2xl">
                 {algo.title}
             </h2>
-            <div className={codeStyle + ' mb-4 opacity-80 space-y-1'}>
+            <div className={codeStyle + ' mb-4 text-lg opacity-80 space-y-1'}>
                 {algo.description}
             </div>
-            <div className={'opacity-80'}>
+            <div className={'text-lg opacity-80'}>
                 <b>Сложность:</b>
                 <p className={codeStyle}>{algo.complexity}</p>
             </div>

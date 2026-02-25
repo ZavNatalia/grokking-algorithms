@@ -50,7 +50,7 @@ body {
 
 @layer components {
     .btn-primary {
-        @apply btn btn-md bg-sky-600 text-white hover:bg-sky-500;
+        @apply btn btn-md bg-violet-600 text-white hover:bg-violet-500;
     }
 
     .btn-secondary {

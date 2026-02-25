@@ -54,7 +54,7 @@ export default function Features() {
                         className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center mb-4"
                     >
                         <svg
-                            className="w-5 h-5 text-sky-400"
+                            className="w-5 h-5 text-violet-400"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
@@ -65,7 +65,7 @@ export default function Features() {
                     <h3 className="text-2xl font-semibold mb-2">
                         {feature.title}
                     </h3>
-                    <p className="text-lg text-slate-400 leading-relaxed">
+                    <p className="text-xl text-slate-400 leading-relaxed">
                         {feature.description}
                     </p>
                 </div>

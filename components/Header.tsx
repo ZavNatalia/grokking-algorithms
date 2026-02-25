@@ -83,7 +83,7 @@ export default function Header() {
                                             }
                                             className={`rounded-lg px-4 py-2 font-medium transition-all ${
                                                 active
-                                                    ? 'text-sky-400'
+                                                    ? 'text-violet-400'
                                                     : 'text-slate-400 hover:bg-slate-800/50 hover:text-slate-200'
                                             }`}
                                         >
@@ -165,7 +165,7 @@ export default function Header() {
                                         }
                                         className={`block min-w-fit rounded-lg px-4 py-3 text-base font-medium transition-all ${
                                             active
-                                                ? 'border border-sky-500/20 bg-sky-500/10 text-sky-400'
+                                                ? 'border border-violet-500/20 bg-violet-500/10 text-violet-400'
                                                 : 'text-slate-400 hover:bg-slate-800/50 hover:text-slate-200'
                                         }`}
                                         onClick={handleCloseMenu}

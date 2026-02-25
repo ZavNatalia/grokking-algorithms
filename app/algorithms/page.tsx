@@ -6,7 +6,7 @@ export default function AlgorithmsPage() {
     return (
         <div className="space-y-6">
             <Breadcrumbs />
-            <h1 className="text-center text-3xl font-semibold">Алгоритмы</h1>
+            <h1 className="text-center text-4xl font-semibold">Алгоритмы</h1>
 
             {/* Quick navigation */}
             <nav className="flex flex-wrap justify-center w-full gap-2 lg:max-w-3/4 mx-auto">
@@ -14,7 +14,7 @@ export default function AlgorithmsPage() {
                     <a
                         key={group.id}
                         href={`#${group.id}`}
-                        className="text-center rounded-3xl bg-slate-800/40 px-3 lg:px-4 py-3 lg:py-2 text-slate-400 transition hover:bg-slate-800/60 hover:text-white"
+                        className="text-center text-lg rounded-3xl bg-slate-800/40 px-3 lg:px-4 py-3 lg:py-2 text-slate-400 transition hover:bg-slate-800/60 hover:text-white"
                     >
                         {group.title}
                     </a>
@@ -27,9 +27,9 @@ export default function AlgorithmsPage() {
                     id={group.id}
                     className="scroll-mt-24 space-y-4"
                 >
-                    <h2 className="text-xl font-semibold">
+                    <h2 className="text-2xl font-semibold">
                         {group.title}{' '}
-                        <span className="text-base opacity-60">
+                        <span className="text-lg opacity-60">
                             ({group.items.length})
                         </span>
                     </h2>
@@ -40,7 +40,7 @@ export default function AlgorithmsPage() {
                                     href={`/algorithms/${a.slug}`}
                                     className="block rounded-2xl border border-white/10 bg-slate-800/40 p-4 transition hover:bg-slate-800/70"
                                 >
-                                    <div className="font-medium">{a.title}</div>
+                                    <div className="text-lg font-medium">{a.title}</div>
                                 </Link>
                             </li>
                         ))}

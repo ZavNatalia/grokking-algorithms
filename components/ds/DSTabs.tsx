@@ -109,7 +109,7 @@ export function DSTabs({ items }: { items: DSItemView[] }) {
                                     <button
                                         role="option"
                                         aria-selected={selected}
-                                        className={`w-full px-4 py-2 text-left text-md transition ${
+                                        className={`w-full px-4 py-2 text-left text-lg transition ${
                                             selected
                                                 ? 'bg-slate-800 text-white'
                                                 : 'text-slate-400 hover:bg-slate-800/60 hover:text-white'
@@ -144,7 +144,7 @@ export function DSTabs({ items }: { items: DSItemView[] }) {
                                     aria-selected={selected}
                                     aria-controls={`panel-${ds.slug}`}
                                     id={`tab-${ds.slug}`}
-                                    className={`w-full cursor-pointer rounded-xl px-3 py-2 text-left transition ${
+                                    className={`w-full cursor-pointer rounded-xl px-3 py-2 text-left text-lg transition ${
                                         selected
                                             ? 'bg-slate-800 text-white'
                                             : 'bg-slate-800/40 hover:bg-slate-800/60'

@@ -9,8 +9,8 @@ export default function DSContent({ current }: { current: DSItemView }) {
             aria-labelledby={`tab-${current.slug}`}
             className="min-w-0 rounded-2xl border border-white/10 bg-slate-800/40 p-4"
         >
-            <h2 className="mb-2 text-2xl font-semibold">{current.title}</h2>
-            <p className="mb-3 opacity-90 leading-relaxed">
+            <h2 className="mb-2 text-3xl font-semibold">{current.title}</h2>
+            <p className="mb-3 text-lg opacity-90 leading-relaxed">
                 {current.definition}
             </p>
 
@@ -18,7 +18,7 @@ export default function DSContent({ current }: { current: DSItemView }) {
                 {current.useWhen.map((t, j) => (
                     <li
                         key={j}
-                        className="rounded-xl border border-white/10 bg-slate-700/40 px-2 py-0.5 text-[11px] uppercase"
+                        className="rounded-xl border border-white/10 bg-slate-700/40 px-2 py-0.5 text-xs uppercase"
                     >
                         {t}
                     </li>

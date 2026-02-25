@@ -4,7 +4,7 @@ import React from 'react';
 export default function Hero() {
     return (
         <div className="max-w-3xl">
-            <div className="pointer-events-none inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800/60 border border-slate-700/50 text-slate-400 text-sm mb-4">
+            <div className="pointer-events-none inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800/60 border border-slate-700/50 text-slate-400 text-base mb-4">
                 <svg
                     className="w-5 h-5"
                     fill="currentColor"
@@ -17,7 +17,7 @@ export default function Hero() {
 
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
                 Изучайте алгоритмы{' '}
-                <span className="text-sky-400">
+                <span className="text-violet-400">
                     наглядно
                 </span>
             </h1>
@@ -32,7 +32,7 @@ export default function Hero() {
                 <Link
                     href="/data-structures"
                     title="Структуры данных"
-                    className="group px-8 py-4 bg-sky-600 hover:bg-sky-500 rounded-xl font-semibold transition-colors text-white"
+                    className="group px-8 py-4 bg-violet-600 hover:bg-violet-500 rounded-xl font-semibold transition-colors text-white"
                 >
                     <span className="flex items-center justify-center gap-2">
                         Структуры данных
