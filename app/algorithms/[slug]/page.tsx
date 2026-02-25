@@ -19,7 +19,7 @@ export default async function Page({
     const source = algo.buildSource();
 
     const codeStyle =
-        '[&_code]:rounded [&_code]:bg-slate-800/40\n' +
+        '[&_code]:rounded [&_code]:bg-slate-200 dark:[&_code]:bg-slate-800/40\n' +
         '                [&_code]:px-1.5 [&_code]:py-[1px]\n' +
         '                [&_code]:font-mono [&_code]:text-[0.95em]';
 

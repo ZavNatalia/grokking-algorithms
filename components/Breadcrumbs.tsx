@@ -31,11 +31,11 @@ export default function Breadcrumbs({ currentTitle }: BreadcrumbsProps) {
 
     return (
         <nav aria-label="Breadcrumb" className="mb-6">
-            <ol className="flex flex-wrap items-center gap-2 text-lg text-slate-400">
+            <ol className="flex flex-wrap items-center gap-2 text-lg text-slate-500 dark:text-slate-400">
                 <li>
                     <Link
                         href="/"
-                        className="transition-colors hover:text-slate-200"
+                        className="transition-colors hover:text-slate-800 dark:hover:text-slate-200"
                     >
                         Главная
                     </Link>
@@ -45,7 +45,7 @@ export default function Breadcrumbs({ currentTitle }: BreadcrumbsProps) {
                         <span aria-hidden="true">/</span>
                         {isLast ? (
                             <span
-                                className="text-slate-200"
+                                className="text-slate-800 dark:text-slate-200"
                                 aria-current="page"
                             >
                                 {label}
@@ -53,7 +53,7 @@ export default function Breadcrumbs({ currentTitle }: BreadcrumbsProps) {
                         ) : (
                             <Link
                                 href={href}
-                                className="transition-colors hover:text-slate-200"
+                                className="transition-colors hover:text-slate-800 dark:hover:text-slate-200"
                             >
                                 {label}
                             </Link>

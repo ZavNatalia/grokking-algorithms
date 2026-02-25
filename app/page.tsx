@@ -11,7 +11,7 @@ export const metadata = {
 
 export default function LandingPage() {
     return (
-        <div className="h-full text-slate-100">
+        <div className="h-full text-slate-900 dark:text-slate-100">
             <main className="max-w-7xl mx-auto px-4 lg:px-6 py-6 lg:py-20">
                 <div className="flex flex-col lg:flex-row lg:items-center lg:gap-12">
                     <div className="flex-1">

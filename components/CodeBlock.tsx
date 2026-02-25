@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import { Highlight, themes } from 'prism-react-renderer';
+import { useTheme } from 'next-themes';
 
 type CodeBlockProps = {
     code: string;
@@ -19,6 +20,8 @@ export function CodeBlock({
     className = '',
 }: CodeBlockProps) {
     const [copied, setCopied] = React.useState(false);
+    const { resolvedTheme } = useTheme();
+    const codeTheme = resolvedTheme === 'dark' ? themes.vsDark : themes.github;
 
     const onCopy = async () => {
         try {
@@ -30,14 +33,14 @@ export function CodeBlock({
 
     return (
         <div
-            className={`relative my-4 overflow-hidden rounded-2xl border border-slate-700/60 ${className}`}
+            className={`relative my-4 overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-700/60 ${className}`}
         >
-            <div className="flex items-center justify-between bg-slate-800/60 px-4 py-2 text-lg">
+            <div className="flex items-center justify-between bg-slate-100 px-4 py-2 text-lg dark:bg-slate-800/60">
                 <span className="truncate">{filename ?? ''}</span>
                 <button
                     type="button"
                     onClick={onCopy}
-                    className={`rounded-md px-2 py-1 transition hover:bg-slate-700/50 ${copied ? 'cursor-default' : 'cursor-pointer'}`}
+                    className={`rounded-md px-2 py-1 transition hover:bg-slate-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-500 dark:hover:bg-slate-700/50 ${copied ? 'cursor-default' : 'cursor-pointer'}`}
                     aria-label="Скопировать код"
                 >
                     {copied ? 'Скопировано' : 'Копировать'}
@@ -45,7 +48,7 @@ export function CodeBlock({
             </div>
 
             <Highlight
-                theme={themes.vsDark}
+                theme={codeTheme}
                 code={code}
                 language={language ?? 'js'}
             >

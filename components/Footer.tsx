@@ -9,10 +9,10 @@ export default function Footer() {
     const year = new Date().getFullYear();
 
     return (
-        <footer className="border-t bg-slate-950 border-slate-800/50">
+        <footer className="border-t bg-slate-50 border-slate-200 dark:bg-slate-950 dark:border-slate-800/50">
             <div className="max-w-7xl mx-auto px-6 py-4">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-                    <p className="text-slate-400">
+                    <p className="text-slate-500 dark:text-slate-400">
                         &copy; {year} {SITE_NAME}
                     </p>
                     <div className="flex items-center gap-6">
@@ -20,7 +20,7 @@ export default function Footer() {
                             href={`https://github.com/${GITHUB_USER}/${GITHUB_REPO}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 text-slate-400 hover:text-slate-300 transition-colors group"
+                            className="flex items-center gap-2 text-slate-500 hover:text-slate-700 transition-colors group dark:text-slate-400 dark:hover:text-slate-300"
                         >
                             <svg
                                 className="w-5 h-5"

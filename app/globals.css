@@ -1,8 +1,15 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:is(.dark *));
+
 :root {
-    --background: #ffffff;
-    --foreground: #171717;
+    --background: #f8fafc;
+    --foreground: #0f172a;
+}
+
+.dark {
+    --background: #1f1f22;
+    --foreground: #d9dbe3;
 }
 
 @theme inline {
@@ -10,13 +17,6 @@
     --color-foreground: var(--foreground);
     --font-sans: var(--font-inter);
     --font-mono: var(--font-roboto-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background: #1f1f22;
-        --foreground: #d9dbe3;
-    }
 }
 
 html,
@@ -54,16 +54,16 @@ body {
     }
 
     .btn-secondary {
-        @apply btn btn-md bg-slate-700 text-slate-100 hover:bg-slate-800;
+        @apply btn btn-md bg-slate-200 text-slate-800 hover:bg-slate-300 dark:bg-slate-700 dark:text-slate-100 dark:hover:bg-slate-800;
     }
 
     .btn-ghost {
-        @apply btn btn-md bg-transparent hover:bg-slate-700/20;
+        @apply btn btn-md bg-transparent hover:bg-slate-200/60 dark:hover:bg-slate-700/20;
     }
 }
 
 .inline-code p code {
-    @apply rounded bg-slate-800/40 px-1.5 py-[1px] font-mono text-[0.95em];
+    @apply rounded bg-slate-200 px-1.5 py-[1px] font-mono text-[0.95em] dark:bg-slate-800/40;
 }
 
 @keyframes sort-slide {

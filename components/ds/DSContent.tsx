@@ -7,7 +7,7 @@ export default function DSContent({ current }: { current: DSItemView }) {
             role="tabpanel"
             id={`panel-${current.slug}`}
             aria-labelledby={`tab-${current.slug}`}
-            className="min-w-0 rounded-2xl border border-white/10 bg-slate-800/40 p-4"
+            className="min-w-0 rounded-2xl border border-slate-200 bg-white p-4 dark:border-white/10 dark:bg-slate-800/40"
         >
             <h2 className="mb-2 text-3xl font-semibold">{current.title}</h2>
             <p className="mb-3 text-lg opacity-90 leading-relaxed">
@@ -18,7 +18,7 @@ export default function DSContent({ current }: { current: DSItemView }) {
                 {current.useWhen.map((t, j) => (
                     <li
                         key={j}
-                        className="rounded-xl border border-white/10 bg-slate-700/40 px-2 py-0.5 text-xs uppercase"
+                        className="rounded-xl border border-slate-200 bg-slate-100 px-2 py-0.5 text-xs uppercase dark:border-white/10 dark:bg-slate-700/40"
                     >
                         {t}
                     </li>
@@ -31,7 +31,7 @@ export default function DSContent({ current }: { current: DSItemView }) {
                         {current.complexity.map((r, k) => (
                             <tr
                                 key={k}
-                                className="odd:bg-slate-700/30 bg-slate-700/10"
+                                className="odd:bg-slate-50 bg-white dark:odd:bg-slate-700/30 dark:bg-slate-700/10"
                             >
                                 <td className="px-2 py-1 opacity-80 whitespace-nowrap italic">
                                     {r.op}

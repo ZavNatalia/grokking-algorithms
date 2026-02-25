@@ -14,7 +14,7 @@ export default function AlgorithmsPage() {
                     <a
                         key={group.id}
                         href={`#${group.id}`}
-                        className="text-center text-lg rounded-3xl bg-slate-800/40 px-3 lg:px-4 py-3 lg:py-2 text-slate-400 transition hover:bg-slate-800/60 hover:text-white"
+                        className="text-center text-lg rounded-3xl bg-slate-200 px-3 lg:px-4 py-3 lg:py-2 text-slate-700 transition hover:bg-slate-300 hover:text-slate-900 dark:bg-slate-800/40 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-white"
                     >
                         {group.title}
                     </a>
@@ -38,14 +38,14 @@ export default function AlgorithmsPage() {
                             <li key={a.slug}>
                                 <Link
                                     href={`/algorithms/${a.slug}`}
-                                    className="block rounded-2xl border border-white/10 bg-slate-800/40 p-4 transition hover:bg-slate-800/70"
+                                    className="block rounded-2xl border border-slate-200 bg-white p-4 transition hover:bg-slate-100  dark:border-white/10 dark:bg-slate-800/40 dark:hover:bg-slate-800/70"
                                 >
                                     <div className="text-lg font-medium">{a.title}</div>
                                 </Link>
                             </li>
                         ))}
                     </ul>
-                    <hr className="border-slate-700/30" />
+                    <hr className="border-slate-200 dark:border-slate-700/30" />
                 </section>
             ))}
         </div>

@@ -48,13 +48,13 @@ export default function Features() {
             {features.map((feature, index) => (
                 <div
                     key={index}
-                    className="p-6 rounded-xl bg-slate-900/50 border border-slate-800/50"
+                    className="p-6 rounded-xl bg-white border border-slate-200 dark:bg-slate-900/50 dark:border-slate-800/50"
                 >
                     <div
-                        className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center mb-4"
+                        className="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center mb-4 dark:bg-slate-800"
                     >
                         <svg
-                            className="w-5 h-5 text-violet-400"
+                            className="w-5 h-5 text-violet-600 dark:text-violet-400"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
@@ -65,7 +65,7 @@ export default function Features() {
                     <h3 className="text-2xl font-semibold mb-2">
                         {feature.title}
                     </h3>
-                    <p className="text-xl text-slate-400 leading-relaxed">
+                    <p className="text-xl text-slate-500 leading-relaxed dark:text-slate-400">
                         {feature.description}
                     </p>
                 </div>

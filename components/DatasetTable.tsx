@@ -10,9 +10,9 @@ type Sample = {
 
 export function DatasetTable({ data }: { data: Sample[] }) {
     return (
-        <div className="overflow-x-auto rounded-2xl border border-white/10">
+        <div className="overflow-x-auto rounded-2xl border border-slate-200 dark:border-white/10">
             <table className="min-w-[600px] w-full">
-                <thead className="bg-slate-800/60">
+                <thead className="bg-slate-100 dark:bg-slate-800/60">
                     <tr className="text-left">
                         <Th>#</Th>
                         <Th>Temp, °C</Th>
@@ -26,7 +26,7 @@ export function DatasetTable({ data }: { data: Sample[] }) {
                     {data.map((r, i) => (
                         <tr
                             key={i}
-                            className="odd:bg-slate-800/30 even:bg-slate-800/10"
+                            className="odd:bg-slate-50 even:bg-white dark:odd:bg-slate-800/30 dark:even:bg-slate-800/10"
                         >
                             <Td className="text-slate-400">{i + 1}</Td>
                             <Td className="font-mono">{r.temp}</Td>
@@ -58,7 +58,7 @@ export function DatasetTable({ data }: { data: Sample[] }) {
 
 function Th({ children }: { children: React.ReactNode }) {
     return (
-        <th className="px-3 py-2 font-semibold text-slate-200">{children}</th>
+        <th className="px-3 py-2 font-semibold text-slate-800 dark:text-slate-200">{children}</th>
     );
 }
 function Td({
@@ -87,8 +87,8 @@ function Badge({
             className={
                 'inline-flex items-center gap-1 rounded-xl px-2 py-0.5 ' +
                 (on
-                    ? 'bg-violet-600/20 text-violet-200'
-                    : 'bg-slate-600/30 text-slate-200')
+                    ? 'bg-violet-600/20 text-violet-700 dark:text-violet-200'
+                    : 'bg-slate-200 text-slate-700 dark:bg-slate-600/30 dark:text-slate-200')
             }
             aria-label={on ? yes : no}
             title={on ? yes : no}
