@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 
-const SITE_NAME = 'Data Structures & Algorithms';
+const SITE_NAME = 'Алгоритмы и структуры данных';
 const GITHUB_USER = 'ZavNatalia';
 const GITHUB_REPO = 'grokking-algorithms';
 

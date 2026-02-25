@@ -21,7 +21,7 @@
 
 html,
 body {
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
 }
 
@@ -50,7 +50,7 @@ body {
 
 @layer components {
     .btn-primary {
-        @apply btn btn-md bg-sky-800 text-white hover:bg-sky-900 active:scale-95;
+        @apply btn btn-md bg-sky-600 text-white hover:bg-sky-500;
     }
 
     .btn-secondary {
@@ -64,4 +64,19 @@ body {
 
 .inline-code p code {
     @apply rounded bg-slate-800/40 px-1.5 py-[1px] font-mono text-[0.95em];
+}
+
+@keyframes sort-slide {
+    0%,
+    15% {
+        transform: translateX(0);
+    }
+    35%,
+    65% {
+        transform: translateX(var(--sort-offset));
+    }
+    85%,
+    100% {
+        transform: translateX(0);
+    }
 }

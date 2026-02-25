@@ -27,12 +27,12 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html lang="ru">
             <body
                 className={`${inter.variable} ${roboto_mono.variable} antialiased flex flex-col relative`}
             >
                 <Header />
-                <div className="flex-1 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+                <div className="flex-1 bg-slate-950">
                     {children}
                 </div>
                 <Footer />

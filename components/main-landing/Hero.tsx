@@ -4,7 +4,7 @@ import React from 'react';
 export default function Hero() {
     return (
         <div className="max-w-3xl">
-            <div className="pointer-events-none inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-gray-400 italic mb-2">
+            <div className="pointer-events-none inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800/60 border border-slate-700/50 text-slate-400 text-sm mb-4">
                 <svg
                     className="w-5 h-5"
                     fill="currentColor"
@@ -15,14 +15,14 @@ export default function Hero() {
                 По мотивам «Грокаем алгоритмы» Адитьи Бхаргавы
             </div>
 
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
                 Изучайте алгоритмы{' '}
-                <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent ">
+                <span className="text-sky-400">
                     наглядно
                 </span>
             </h1>
 
-            <p className="text-lg md:text-xl text-slate-400 mb-6 leading-relaxed">
+            <p className="text-xl md:text-2xl text-slate-400 mb-6 leading-relaxed">
                 Интерактивное пособие по структурам данных и алгоритмам.
                 Определения, асимптотики, примеры кода на TypeScript — всё в
                 одном месте.
@@ -32,7 +32,7 @@ export default function Hero() {
                 <Link
                     href="/data-structures"
                     title="Структуры данных"
-                    className="group px-8 py-4 bg-gradient-to-r from-blue-800 to-purple-800 hover:from-blue-700 hover:to-purple-700 rounded-xl font-semibold transition-all shadow-lg shadow-blue-700/25 hover:shadow-xl hover:shadow-blue-700/40 hover:scale-105"
+                    className="group px-8 py-4 bg-sky-600 hover:bg-sky-500 rounded-xl font-semibold transition-colors text-white"
                 >
                     <span className="flex items-center justify-center gap-2">
                         Структуры данных
@@ -54,7 +54,7 @@ export default function Hero() {
                 <Link
                     href="/algorithms"
                     title="Алгоритмы"
-                    className="px-8 py-4 bg-slate-800/50 text-center hover:bg-slate-800 border border-slate-700 hover:border-slate-600 rounded-xl font-semibold transition-all"
+                    className="px-8 py-4 bg-slate-800/50 text-center hover:bg-slate-800 border border-slate-700 hover:border-slate-600 rounded-xl font-semibold transition-colors text-slate-200"
                 >
                     Алгоритмы
                 </Link>

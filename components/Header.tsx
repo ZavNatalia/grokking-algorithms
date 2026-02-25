@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 const BRAND = {
-    name: 'Data Structures & Algorithms',
+    name: 'Алгоритмы и структуры данных',
     logo: '/logo.svg',
 };
 
@@ -60,7 +60,7 @@ export default function Header() {
                             height={24}
                             className="rounded-full opacity-90"
                         />
-                        <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-lg font-bold text-transparent md:text-xl">
+                        <span className="text-slate-100 text-lg font-bold md:text-xl">
                             {BRAND.name}
                         </span>
                     </Link>
@@ -83,7 +83,7 @@ export default function Header() {
                                             }
                                             className={`rounded-lg px-4 py-2 font-medium transition-all ${
                                                 active
-                                                    ? 'text-blue-400'
+                                                    ? 'text-sky-400'
                                                     : 'text-slate-400 hover:bg-slate-800/50 hover:text-slate-200'
                                             }`}
                                         >
@@ -165,7 +165,7 @@ export default function Header() {
                                         }
                                         className={`block min-w-fit rounded-lg px-4 py-3 text-base font-medium transition-all ${
                                             active
-                                                ? 'border border-blue-500/20 bg-blue-500/10 text-blue-400'
+                                                ? 'border border-sky-500/20 bg-sky-500/10 text-sky-400'
                                                 : 'text-slate-400 hover:bg-slate-800/50 hover:text-slate-200'
                                         }`}
                                         onClick={handleCloseMenu}
