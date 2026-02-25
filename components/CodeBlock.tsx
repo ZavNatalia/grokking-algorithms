@@ -21,7 +21,7 @@ export function CodeBlock({
 }: CodeBlockProps) {
     const [copied, setCopied] = React.useState(false);
     const { resolvedTheme } = useTheme();
-    const codeTheme = resolvedTheme === 'dark' ? themes.vsDark : themes.github;
+    const codeTheme = resolvedTheme === 'light' ? themes.github : themes.vsDark;
 
     const onCopy = async () => {
         try {
