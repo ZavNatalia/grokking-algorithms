@@ -69,7 +69,7 @@ const calls = scenarios
 
 const algo = {
     slug: 'ml-knn-classification',
-    title: 'k-NN классификация – распределение по категориям',
+    title: 'k-NN рекомендация – предсказание рейтингов',
     description: (
         <div>
             <p>Алгоритм k-ближайших соседей (k-Nearest Neighbors).</p>

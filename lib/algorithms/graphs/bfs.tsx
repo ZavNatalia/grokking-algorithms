@@ -91,26 +91,26 @@ function bfsPath(
     const queue: string[] = [start];
     const visited = new Set<string>();
     const parent = new Map<string, string>();
-    
+
     while (queue.length) {
         const v = queue.shift()!;
         if (visited.has(v)) continue;
         visited.add(v);
 
-    if (isGoal(v)) {
-        const path = [v];
-        let cur = v;
-        while (parent.has(cur)) {
-            cur = parent.get(cur)!;
-            path.unshift(cur);
+        if (isGoal(v)) {
+            const path = [v];
+            let cur = v;
+            while (parent.has(cur)) {
+                cur = parent.get(cur)!;
+                path.unshift(cur);
+            }
+            return path;
         }
-        return path;
-    }
-    
-    for (const n of graph[v] ?? []) {
-        if (!visited.has(n)) {
-            if (!parent.has(n)) parent.set(n, v);
-            queue.push(n);
+
+        for (const n of graph[v] ?? []) {
+            if (!visited.has(n)) {
+                if (!parent.has(n)) parent.set(n, v);
+                queue.push(n);
             }
         }
     }

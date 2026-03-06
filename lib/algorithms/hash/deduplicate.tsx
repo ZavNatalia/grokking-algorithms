@@ -80,8 +80,8 @@ function dedupIterative<T>(arr: T[]): T[] {
             seen.add(x);
             res.push(x);
         }
-}
-return res;
+    }
+    return res;
 }
 
 // Короткая версия через Set

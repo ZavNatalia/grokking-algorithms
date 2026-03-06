@@ -211,8 +211,8 @@ function computeNorms(data: Sample[]) {
     const tMin = Math.min(...data.map(d => d.temp));
     const tMax = Math.max(...data.map(d => d.temp));
     const hMin = Math.min(...data.map(d => d.humidity));
-   const hMax = Math.max(...data.map(d => d.humidity));
-   return {tMin, tMax, hMin, hMax};
+    const hMax = Math.max(...data.map(d => d.humidity));
+    return {tMin, tMax, hMin, hMax};
 }
 
 /** 

@@ -94,6 +94,9 @@ type Node<T> = { value: T; next: Node<T> | null };
 
 class LinkedList<T> {
   private head: Node<T> | null = null;
+
+  // O(n) — проходим до конца списка.
+  // Для O(1) вставки можно хранить ссылку на tail.
   append(value: T) {
     const n: Node<T> = { value, next: null };
     if (!this.head) { this.head = n; return; }
@@ -156,8 +159,17 @@ const phone = new Map<string, string>();
 phone.set('Alice', '111-22-33');
 phone.set('Bob',   '222-33-44');
 
-console.log(phone.get('Bob')); // '222-33-44'
-phone.delete('Alice');`.trim(),
+console.log(phone.get('Bob'));    // '222-33-44'
+console.log(phone.has('Alice')); // true
+console.log(phone.get('Eve'));   // undefined (ключ отсутствует)
+
+phone.delete('Alice');
+console.log(phone.size);         // 1
+
+// Итерация по всем парам:
+for (const [name, num] of phone) {
+  console.log(name, num);        // 'Bob' '222-33-44'
+}`.trim(),
     },
 
     {
@@ -187,7 +199,7 @@ phone.delete('Alice');`.trim(),
         ),
         useWhen: ['Отмена действий', 'Обходы DFS', 'Парсинг скобок/выражений'],
         complexity: [
-            { op: 'push/pop/top', bigO: 'O(1)' },
+            { op: 'push/pop/peek', bigO: 'O(1)' },
             { op: 'Поиск по значению', bigO: 'O(n)' },
             { op: 'Память', bigO: 'O(n)' },
         ],
@@ -252,7 +264,11 @@ class Queue<T> {
   private head = 0;
   enqueue(x:T){ this.a.push(x); }
   dequeue():T|undefined{
-    return this.head < this.a.length ? this.a[this.head++] : undefined;
+    if (this.head >= this.a.length) return undefined;
+    const val = this.a[this.head];
+    this.a[this.head] = undefined as unknown as T; // освобождаем ссылку
+    this.head++;
+    return val;
   }
   get size(){ return this.a.length - this.head; }
 }
@@ -359,6 +375,8 @@ console.log(has(root,3)); // true`.trim(),
             `
 type Graph = Record<string, string[]>;
 
+// Ориентированный граф: ребро A→B не означает B→A.
+// Для неориентированного графа добавляйте рёбра в обе стороны.
 const g: Graph = {
   A: ['B','C'],
   B: ['D'],
@@ -367,7 +385,7 @@ const g: Graph = {
   E: [],
   F: [],
 };
-// соседей вершины:
+// Соседи вершины C (куда ведут рёбра из C):
 console.log(g['C']); // ['D','E']`.trim(),
     },
 
