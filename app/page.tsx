@@ -1,4 +1,3 @@
-import React from 'react';
 import Features from '@/components/main-landing/Features';
 import Hero from '@/components/main-landing/Hero';
 import SortingAnimation from '@/components/main-landing/SortingAnimation';

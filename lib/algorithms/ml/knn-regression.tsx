@@ -1,5 +1,4 @@
-import React from 'react';
-import { Algorithm } from '../types';
+import type { Algorithm } from '@/lib/algorithms/types';
 import { DatasetTable } from '@/components/DatasetTable';
 
 type Sample = {

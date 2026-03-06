@@ -1,5 +1,4 @@
-import React from 'react';
-import type { Algorithm } from '../types';
+import type { Algorithm } from '@/lib/algorithms/types';
 
 function factorial(n: number): number {
     if (n < 0) throw new Error('n must be >= 0');

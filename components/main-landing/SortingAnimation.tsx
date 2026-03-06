@@ -1,5 +1,7 @@
 'use client';
 
+import type { CSSProperties } from 'react';
+
 const bars = [
     { value: 5, sortedIndex: 4 },
     { value: 2, sortedIndex: 1 },
@@ -34,7 +36,7 @@ export default function SortingAnimation() {
                             opacity: 0.25 + (bar.value / 8) * 0.75,
                             '--sort-offset': `${(bar.sortedIndex - i) * STEP}px`,
                             animation: 'sort-slide 8s ease-in-out infinite',
-                        } as React.CSSProperties
+                        } as CSSProperties
                     }
                 />
             ))}

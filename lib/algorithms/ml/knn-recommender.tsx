@@ -1,5 +1,4 @@
-import React from 'react';
-import { Algorithm } from '../types';
+import type { Algorithm } from '@/lib/algorithms/types';
 
 type Ratings = Record<string, Record<string, number>>;
 

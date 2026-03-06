@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Algorithm } from '@/lib/algorithms/types';
 
 function quicksort(arr: number[]): number[] {

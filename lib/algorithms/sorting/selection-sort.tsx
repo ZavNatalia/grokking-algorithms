@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Algorithm } from '@/lib/algorithms/types';
 function findSmallest(arr: number[]): number {
     let s = arr[0],

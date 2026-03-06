@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { Algorithm } from '../types';
+import type { Algorithm } from '@/lib/algorithms/types';
 
 const algo = {
     slug: 'graphs-dijkstra',

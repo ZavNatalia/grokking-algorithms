@@ -1,4 +1,4 @@
-import React from 'react';
+import type { ReactNode } from 'react';
 
 type Sample = {
     temp: number;
@@ -56,7 +56,7 @@ export function DatasetTable({ data }: { data: Sample[] }) {
     );
 }
 
-function Th({ children }: { children: React.ReactNode }) {
+function Th({ children }: { children: ReactNode }) {
     return (
         <th className="px-3 py-2 font-semibold text-slate-800 dark:text-slate-200">{children}</th>
     );
@@ -65,7 +65,7 @@ function Td({
     children,
     className = '',
 }: {
-    children: React.ReactNode;
+    children: ReactNode;
     className?: string;
 }) {
     return <td className={`px-3 py-2 ${className}`}>{children}</td>;

@@ -1,8 +1,8 @@
-import type { Algorithm } from './types';
-import binarySearch from './search/binary-search';
-import selectionSort from './sorting/selection-sort';
+import type { Algorithm } from '@/lib/algorithms/types';
+import binarySearch from '@/lib/algorithms/search/binary-search';
+import selectionSort from '@/lib/algorithms/sorting/selection-sort';
 import quicksort from '@/lib/algorithms/sorting/quicksort';
-import factorial from './recursion/factorial';
+import factorial from '@/lib/algorithms/recursion/factorial';
 import bfsTree from '@/lib/algorithms/trees/bfsTree';
 import dfsTree from '@/lib/algorithms/trees/dfsTree';
 import dijkstra from '@/lib/algorithms/graphs/dijkstra';

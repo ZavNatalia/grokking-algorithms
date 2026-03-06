@@ -1,5 +1,4 @@
-import React from 'react';
-import { Algorithm } from '../types';
+import type { Algorithm } from '@/lib/algorithms/types';
 
 function binarySearch(arr: number[], target: number): number {
     let low = 0,

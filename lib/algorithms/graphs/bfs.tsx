@@ -1,5 +1,4 @@
-import * as React from 'react';
-import type { Algorithm } from '../types';
+import type { Algorithm } from '@/lib/algorithms/types';
 
 // Поиск в ширину: кратчайший путь (по числу рёбер) в невзвешенном графе
 function bfsPath(

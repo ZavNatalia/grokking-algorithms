@@ -1,5 +1,4 @@
-import * as React from 'react';
-import type { Algorithm } from '../types';
+import type { Algorithm } from '@/lib/algorithms/types';
 
 // Немутирующее удаление дубликатов с сохранением порядка первого появления
 function dedupIterative<T>(arr: T[]): T[] {

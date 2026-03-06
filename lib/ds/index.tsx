@@ -1,4 +1,3 @@
-import React from 'react';
 import type { DSItem } from './types';
 
 export type { DSItem };
