@@ -20,16 +20,39 @@ export function CodeBlock({
     className = '',
 }: CodeBlockProps) {
     const [copied, setCopied] = React.useState(false);
+    const timerRef = React.useRef<ReturnType<typeof setTimeout>>(null);
     const { resolvedTheme } = useTheme();
     const codeTheme = resolvedTheme === 'light' ? themes.github : themes.vsDark;
 
     const onCopy = async () => {
+        let success = false;
         try {
             await navigator.clipboard.writeText(code);
-            setCopied(true);
-            setTimeout(() => setCopied(false), 1200);
-        } catch {}
+            success = true;
+        } catch {
+            const textarea = document.createElement('textarea');
+            textarea.value = code;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                success = document.execCommand('copy');
+            } finally {
+                document.body.removeChild(textarea);
+            }
+        }
+        if (!success) return;
+        setCopied(true);
+        if (timerRef.current) clearTimeout(timerRef.current);
+        timerRef.current = setTimeout(() => setCopied(false), 1200);
     };
+
+    React.useEffect(() => {
+        return () => {
+            if (timerRef.current) clearTimeout(timerRef.current);
+        };
+    }, []);
 
     return (
         <div
@@ -41,7 +64,7 @@ export function CodeBlock({
                     type="button"
                     onClick={onCopy}
                     className={`rounded-md px-2 py-1 transition hover:bg-slate-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-500 dark:hover:bg-slate-700/50 ${copied ? 'cursor-default' : 'cursor-pointer'}`}
-                    aria-label="Скопировать код"
+                    aria-live="polite"
                 >
                     {copied ? 'Скопировано' : 'Копировать'}
                 </button>

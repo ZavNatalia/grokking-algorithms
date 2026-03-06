@@ -1,16 +1,7 @@
 import React from 'react';
+import type { DSItem } from './types';
 
-export type DSItem = {
-    slug: string;
-    title: string;
-    definition: React.ReactNode;
-    type?: React.ReactNode | string;
-    useWhen: string[];
-    complexity: Array<{ op: string; bigO: string; note?: string }>;
-    filename: string;
-    language: 'ts' | 'tsx';
-    buildSource: () => string;
-};
+export type { DSItem };
 
 export const dataStructures: DSItem[] = [
     {

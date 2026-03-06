@@ -1,13 +1,14 @@
-import React from 'react';
+import { ReactNode } from 'react';
 
 export type DSItem = {
     slug: string;
     title: string;
-    definition: React.ReactNode;
+    definition: ReactNode;
+    type?: ReactNode | string;
     useWhen: string[];
     complexity: { op: string; bigO: string; note?: string }[];
     filename: string;
-    language: string;
+    language: 'ts' | 'tsx';
     buildSource: () => string;
 };
 

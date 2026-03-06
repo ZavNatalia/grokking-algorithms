@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { CodeBlock } from '@/components/CodeBlock';
 import { algorithms, algoBySlug } from '@/lib/algorithms';
@@ -7,13 +8,27 @@ export function generateStaticParams() {
     return algorithms.map((a) => ({ slug: a.slug }));
 }
 
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+    const { slug } = await params;
+    const algo = algoBySlug[slug];
+    if (!algo) return {};
+    return {
+        title: algo.title,
+        description: `${algo.title} — объяснение, анализ сложности и пример кода на TypeScript.`,
+    };
+}
+
 export default async function Page({
     params,
 }: {
     params: Promise<{ slug: string }>;
 }) {
     const { slug } = await params;
-    const algo = await algoBySlug[slug];
+    const algo = algoBySlug[slug];
     if (!algo) return notFound();
 
     const source = algo.buildSource();

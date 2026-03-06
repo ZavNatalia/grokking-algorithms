@@ -19,6 +19,7 @@ const HEIGHT_UNIT = 24;
 export default function SortingAnimation() {
     return (
         <div
+            aria-label="Анимация сортировки"
             className="relative flex items-end"
             style={{ gap: GAP, height: bars.length * HEIGHT_UNIT }}
         >

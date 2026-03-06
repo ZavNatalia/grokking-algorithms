@@ -27,6 +27,13 @@ export default function DSContent({ current }: { current: DSItemView }) {
 
             <div className="mb-3 overflow-x-auto">
                 <table className="w-fit">
+                    <thead className="sr-only">
+                        <tr>
+                            <th>Операция</th>
+                            <th>Сложность</th>
+                            <th>Примечание</th>
+                        </tr>
+                    </thead>
                     <tbody>
                         {current.complexity.map((r, k) => (
                             <tr
