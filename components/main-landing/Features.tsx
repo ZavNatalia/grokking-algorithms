@@ -43,9 +43,9 @@ const features = [
 export default function Features() {
     return (
         <div className="grid md:grid-cols-3 gap-6 mt-8 lg:mt-24">
-            {features.map((feature, index) => (
+            {features.map((feature) => (
                 <div
-                    key={index}
+                    key={feature.title}
                     className="p-6 rounded-xl bg-white border border-slate-200 dark:bg-slate-900/50 dark:border-slate-800/50"
                 >
                     <div

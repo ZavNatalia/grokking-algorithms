@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useMemo, useRef, useState, startTransition } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import type { DSItemView } from '@/lib/ds/types';
 import DSContent from '@/components/ds/DSContent';
 
@@ -12,24 +12,15 @@ export function DSTabs({ items }: { items: DSItemView[] }) {
     const tabRefs = useRef<HTMLButtonElement[]>([]);
     const dropdownRef = useRef<HTMLDivElement>(null);
 
-    // После монтирования читаем hash
+    // Читаем hash при монтировании и слушаем изменения
     useEffect(() => {
-        const h = window.location.hash.slice(1);
-        if (slugs.includes(h)) {
-            startTransition(() => {
-                setActive(h);
-            });
-        }
-    }, [slugs]);
-
-    // Слушаем изменения hash
-    useEffect(() => {
-        const onHash = () => {
-            const hh = window.location.hash.slice(1);
-            if (slugs.includes(hh)) setActive(hh);
+        const syncHash = () => {
+            const h = window.location.hash.slice(1);
+            if (slugs.includes(h)) setActive(h);
         };
-        window.addEventListener('hashchange', onHash);
-        return () => window.removeEventListener('hashchange', onHash);
+        syncHash();
+        window.addEventListener('hashchange', syncHash);
+        return () => window.removeEventListener('hashchange', syncHash);
     }, [slugs]);
 
     // Обновляем hash в URL
@@ -151,18 +142,17 @@ export function DSTabs({ items }: { items: DSItemView[] }) {
                                     }`}
                                     onClick={() => setActive(ds.slug)}
                                     onKeyDown={(e) => {
-                                        const i = slugs.indexOf(active);
-                                        if (e.key === 'ArrowDown')
-                                            setActive(
-                                                slugs[(i + 1) % slugs.length]
-                                            );
-                                        if (e.key === 'ArrowUp')
-                                            setActive(
-                                                slugs[
-                                                    (i - 1 + slugs.length) %
-                                                        slugs.length
-                                                ]
-                                            );
+                                        const cur = slugs.indexOf(active);
+                                        let next = -1;
+                                        if (e.key === 'ArrowDown') next = (cur + 1) % slugs.length;
+                                        if (e.key === 'ArrowUp') next = (cur - 1 + slugs.length) % slugs.length;
+                                        if (e.key === 'Home') next = 0;
+                                        if (e.key === 'End') next = slugs.length - 1;
+                                        if (next >= 0) {
+                                            e.preventDefault();
+                                            setActive(slugs[next]);
+                                            tabRefs.current[next]?.focus();
+                                        }
                                     }}
                                 >
                                     {ds.title}
