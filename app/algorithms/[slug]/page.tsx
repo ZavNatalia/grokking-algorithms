@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { AlgoAnimation } from '@/components/animations/AlgoAnimation';
 import { CodeBlock } from '@/components/CodeBlock';
 import { algorithms, algoBySlug } from '@/lib/algorithms';
 import Breadcrumbs from '@/components/Breadcrumbs';
@@ -51,6 +52,7 @@ export default async function Page({
                 <b>Сложность:</b>
                 <p className={codeStyle}>{algo.complexity}</p>
             </div>
+            <AlgoAnimation slug={algo.slug} />
             <CodeBlock
                 code={source}
                 language={algo.language ?? 'ts'}
