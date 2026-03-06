@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Алгоритмы и структуры данных
 
-## Getting Started
+Интерактивное веб-пособие по алгоритмам и структурам данных по мотивам книги «Грокаем алгоритмы» Адитьи Бхаргавы. Определения, анализ сложности (Big-O) и примеры кода на TypeScript — всё в одном месте.
 
-First, run the development server:
+## Технологии
+
+- [Next.js](https://nextjs.org/) 16 (App Router)
+- [React](https://react.dev/) 19
+- [TypeScript](https://www.typescriptlang.org/) 5
+- [Tailwind CSS](https://tailwindcss.com/) 4
+- [next-themes](https://github.com/pacocoursey/next-themes) — переключение светлой/тёмной темы
+- [prism-react-renderer](https://github.com/FormidableLabs/prism-react-renderer) — подсветка синтаксиса
+
+## Содержание
+
+### Алгоритмы
+
+| Категория                      | Алгоритмы                                                        |
+| ------------------------------ | ---------------------------------------------------------------- |
+| Поиск                          | Бинарный поиск                                                   |
+| Сортировка                     | Сортировка выбором, быстрая сортировка                           |
+| Рекурсия                       | Факториал                                                        |
+| Деревья                        | Обход в ширину (BFS), обход в глубину (DFS)                      |
+| Графы                          | Поиск в ширину (BFS), алгоритм Дейкстры                         |
+| Жадные алгоритмы               | Покрытие множеств                                                |
+| Динамическое программирование  | Задача о рюкзаке, наибольшая общая подстрока, подпоследовательность |
+| Хеш-таблицы                    | Дедупликация                                                     |
+| ML / k-NN                      | k-NN рекомендации, k-NN регрессия                                |
+
+### Структуры данных
+
+Массив, связный список, хеш-таблица, стек, очередь, двоичное поисковое дерево (BST), граф (список смежности), двоичная куча (мин-куча).
+
+## Запуск
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+# Установка зависимостей
+pnpm install
+
+# Запуск dev-сервера
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Приложение будет доступно по адресу [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Структура проекта
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+app/                        # Страницы (App Router)
+├── page.tsx                # Главная (лендинг)
+├── algorithms/             # Каталог и страницы алгоритмов
+│   ├── page.tsx            # Список алгоритмов по категориям
+│   └── [slug]/page.tsx     # Страница конкретного алгоритма
+└── data-structures/        # Страница структур данных
 
-## Learn More
+components/                 # React-компоненты
+├── main-landing/           # Компоненты лендинга (Hero, Features, SortingAnimation)
+├── ds/                     # Компоненты раздела структур данных
+├── Header.tsx, Footer.tsx  # Шапка и подвал
+├── CodeBlock.tsx           # Блок кода с подсветкой синтаксиса
+└── ThemeToggle.tsx         # Переключатель темы
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+lib/                        # Данные и логика
+├── algorithms/             # Описания алгоритмов по категориям
+│   ├── index.ts            # Реестр всех алгоритмов
+│   └── search/, sorting/,  # Папки по категориям
+│       graphs/, ...
+└── ds/                     # Описания структур данных
+```
