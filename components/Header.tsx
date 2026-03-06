@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import ThemeToggle from '@/components/ThemeToggle';
 import GitHubIcon from '@/components/icons/GitHubIcon';
+import clsx from 'clsx';
 
 const BRAND = {
     name: 'Алгоритмы и структуры данных',
@@ -99,11 +100,12 @@ export default function Header() {
                                             aria-current={
                                                 active ? 'page' : undefined
                                             }
-                                            className={`rounded-lg px-4 py-2 font-medium transition-all text-lg ${
+                                            className={clsx(
+                                                'rounded-lg px-4 py-2 font-medium transition-all text-lg',
                                                 active
                                                     ? 'text-violet-600 dark:text-violet-400'
                                                     : 'text-slate-500 hover:bg-slate-200 hover:text-slate-800 dark:text-slate-400 dark:hover:bg-slate-800/50 dark:hover:text-slate-200'
-                                            }`}
+                                            )}
                                         >
                                             {title}
                                         </Link>
@@ -165,9 +167,10 @@ export default function Header() {
 
             {/* Mobile Menu Drawer */}
             <nav
-                className={`fixed right-0 top-[73px] z-40 h-[calc(100vh-73px)] w-80 max-w-[85vw] border-l border-slate-200 bg-white shadow-2xl transition-transform duration-300 ease-in-out dark:border-slate-800/50 dark:bg-slate-900 md:hidden ${
+                className={clsx(
+                    'fixed right-0 top-[73px] z-40 h-[calc(100vh-73px)] w-80 max-w-[85vw] border-l border-slate-200 bg-white shadow-2xl transition-transform duration-300 ease-in-out dark:border-slate-800/50 dark:bg-slate-900 md:hidden',
                     isOpen ? 'translate-x-0' : 'translate-x-full'
-                }`}
+                )}
                 aria-label="Мобильное меню"
             >
                 <div className="flex h-full flex-col">
@@ -182,11 +185,12 @@ export default function Header() {
                                         aria-current={
                                             active ? 'page' : undefined
                                         }
-                                        className={`block min-w-fit rounded-lg px-4 py-3 text-base font-medium transition-all ${
+                                        className={clsx(
+                                            'block min-w-fit rounded-lg px-4 py-3 text-base font-medium transition-all',
                                             active
                                                 ? 'border border-violet-500/20 bg-violet-500/10 text-violet-600 dark:text-violet-400'
                                                 : 'text-slate-500 hover:bg-slate-100 hover:text-slate-800 dark:text-slate-400 dark:hover:bg-slate-800/50 dark:hover:text-slate-200'
-                                        }`}
+                                        )}
                                         onClick={handleCloseMenu}
                                     >
                                         {title}

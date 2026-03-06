@@ -3,6 +3,7 @@
 import * as React from 'react';
 import { Highlight, themes } from 'prism-react-renderer';
 import { useTheme } from 'next-themes';
+import clsx from 'clsx';
 
 type CodeBlockProps = {
     code: string;
@@ -63,7 +64,10 @@ export function CodeBlock({
                 <button
                     type="button"
                     onClick={onCopy}
-                    className={`rounded-md px-2 py-1 transition hover:bg-slate-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-500 dark:hover:bg-slate-700/50 ${copied ? 'cursor-default' : 'cursor-pointer'}`}
+                    className={clsx(
+                        'rounded-md px-2 py-1 transition hover:bg-slate-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-500 dark:hover:bg-slate-700/50',
+                        copied ? 'cursor-default' : 'cursor-pointer'
+                    )}
                     aria-live="polite"
                 >
                     {copied ? 'Скопировано' : 'Копировать'}

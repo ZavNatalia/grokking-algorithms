@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useMemo, useRef, useState } from 'react';
+import clsx from 'clsx';
 import type { DSItemView } from '@/lib/ds/types';
 import DSContent from '@/components/ds/DSContent';
 
@@ -75,7 +76,7 @@ export function DSTabs({ items }: { items: DSItemView[] }) {
                 >
                     <span>{current.title}</span>
                     <svg
-                        className={`h-5 w-5 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`}
+                        className={clsx('h-5 w-5 transition-transform', isDropdownOpen && 'rotate-180')}
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -100,11 +101,12 @@ export function DSTabs({ items }: { items: DSItemView[] }) {
                                     <button
                                         role="option"
                                         aria-selected={selected}
-                                        className={`w-full cursor-pointer px-4 py-2 text-left text-lg transition focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-violet-500 ${
+                                        className={clsx(
+                                            'w-full cursor-pointer px-4 py-2 text-left text-lg transition focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-violet-500',
                                             selected
                                                 ? 'bg-slate-100 text-slate-900 dark:bg-slate-800 dark:text-white'
                                                 : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-white'
-                                        }`}
+                                        )}
                                         onClick={() => handleSelect(ds.slug)}
                                     >
                                         {ds.title}
@@ -135,11 +137,12 @@ export function DSTabs({ items }: { items: DSItemView[] }) {
                                     aria-selected={selected}
                                     aria-controls={`panel-${ds.slug}`}
                                     id={`tab-${ds.slug}`}
-                                    className={`w-full cursor-pointer rounded-xl px-3 py-2 text-left text-lg transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-500 ${
+                                    className={clsx(
+                                        'w-full cursor-pointer rounded-xl px-3 py-2 text-left text-lg transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-500',
                                         selected
                                             ? 'bg-slate-200 text-slate-900 dark:bg-slate-800 dark:text-white'
                                             : 'bg-slate-50 hover:bg-slate-100 dark:bg-slate-800/40 dark:hover:bg-slate-800/60'
-                                    }`}
+                                    )}
                                     onClick={() => setActive(ds.slug)}
                                     onKeyDown={(e) => {
                                         const cur = slugs.indexOf(active);
