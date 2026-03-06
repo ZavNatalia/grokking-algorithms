@@ -1,5 +1,6 @@
 import type { Algorithm } from '@/lib/algorithms/types';
 
+// Keep in sync with buildSource below
 function quicksort(arr: number[]): number[] {
     if (arr.length <= 1) {
         return arr.slice();

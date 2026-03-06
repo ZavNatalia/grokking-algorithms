@@ -22,6 +22,7 @@ const DEFAULT_WEIGHTS = {
     weekend: 2,
 } as const satisfies Weights;
 
+// Computation versions — keep logic in sync with buildSource
 function computeNorms(data: Sample[]) {
     const tMin = Math.min(...data.map((d) => d.temp));
     const tMax = Math.max(...data.map((d) => d.temp));

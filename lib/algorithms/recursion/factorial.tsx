@@ -1,5 +1,6 @@
 import type { Algorithm } from '@/lib/algorithms/types';
 
+// Keep in sync with buildSource below
 function factorial(n: number): number {
     if (n < 0) throw new Error('n must be >= 0');
     return n <= 1 ? 1 : n * factorial(n - 1);

@@ -1,4 +1,5 @@
 import type { Algorithm } from '@/lib/algorithms/types';
+// Keep in sync with buildSource below
 function findSmallest(arr: number[]): number {
     let s = arr[0],
         si = 0;

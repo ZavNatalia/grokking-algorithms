@@ -1,5 +1,6 @@
 import type { Algorithm } from '@/lib/algorithms/types';
 
+// Keep in sync with buildSource below
 function binarySearch(arr: number[], target: number): number {
     let low = 0,
         high = arr.length - 1;

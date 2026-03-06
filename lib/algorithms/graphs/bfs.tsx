@@ -1,5 +1,6 @@
 import type { Algorithm } from '@/lib/algorithms/types';
 
+// Keep in sync with buildSource below
 // Поиск в ширину: кратчайший путь (по числу рёбер) в невзвешенном графе
 function bfsPath(
     graph: Record<string, string[]>,

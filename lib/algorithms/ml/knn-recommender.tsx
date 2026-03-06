@@ -2,6 +2,7 @@ import type { Algorithm } from '@/lib/algorithms/types';
 
 type Ratings = Record<string, Record<string, number>>;
 
+// Computation versions — keep logic in sync with buildSource
 function euclidOnOverlap(
     a: Record<string, number>,
     b: Record<string, number>

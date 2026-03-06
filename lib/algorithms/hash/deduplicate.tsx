@@ -1,5 +1,6 @@
 import type { Algorithm } from '@/lib/algorithms/types';
 
+// Keep in sync with buildSource below
 // Немутирующее удаление дубликатов с сохранением порядка первого появления
 function dedupIterative<T>(arr: T[]): T[] {
     const seen = new Set<T>();

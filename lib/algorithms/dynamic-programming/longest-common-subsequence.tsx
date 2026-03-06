@@ -1,5 +1,6 @@
 import type { Algorithm } from '@/lib/algorithms/types';
 
+// Computation version of longestCommonSubsequence — keep logic in sync with buildSource
 function lcsEval(
     a: string,
     b: string
