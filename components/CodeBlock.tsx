@@ -23,6 +23,10 @@ export function CodeBlock({
     const [copied, setCopied] = React.useState(false);
     const timerRef = React.useRef<ReturnType<typeof setTimeout>>(null);
     const { resolvedTheme } = useTheme();
+
+    // resolvedTheme undefined на сервере — используем vsDark как SSR-дефолт.
+    // next-themes синхронизирует тему до гидрации через скрипт в <head>,
+    // поэтому визуально мигание минимально.
     const codeTheme = resolvedTheme === 'light' ? themes.github : themes.vsDark;
 
     const onCopy = async () => {
@@ -89,12 +93,14 @@ export function CodeBlock({
                     <pre
                         className={`${preClass} m-0 overflow-x-auto p-4 text-lg`}
                         style={style}
+                        suppressHydrationWarning
                     >
                         {tokens.map((line, i) => (
                             <div
                                 key={i}
                                 {...getLineProps({ line })}
                                 className="whitespace-pre"
+                                suppressHydrationWarning
                             >
                                 {showLineNumbers && (
                                     <span className="select-none pr-4 opacity-40">
@@ -105,6 +111,7 @@ export function CodeBlock({
                                     <span
                                         key={key}
                                         {...getTokenProps({ token })}
+                                        suppressHydrationWarning
                                     />
                                 ))}
                             </div>

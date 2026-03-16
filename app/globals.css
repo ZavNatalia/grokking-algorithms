@@ -65,6 +65,19 @@ body {
     @apply rounded bg-slate-200 px-1.5 py-[1px] font-mono text-[0.95em] dark:bg-slate-800/40;
 }
 
+@keyframes graph-pulse {
+    0%,
+    100% {
+        opacity: 0.3;
+        r: 8;
+    }
+    40%,
+    60% {
+        opacity: 1;
+        r: 10;
+    }
+}
+
 @keyframes sort-slide {
     0%,
     15% {
